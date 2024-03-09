@@ -79,7 +79,26 @@ export const getAllDoctor = async (req, res) => {
 
   try {
 
-    const doctors = await Doctor.find({}).select("-password") // remove the password field when returned
+    const { query } = req.query
+    let doctors
+
+    // This is for the "find the doctors" search/filter bar.
+    // Filter only those "approved" doctors AND
+    // all the documents where the value of the name field is xxx, OR
+    // the value of the specialization field is xxx.
+    // If no query specified, then find all doctors.
+    if (query) {
+      doctors = await Doctor.find({
+        isApproved: 'approved',
+        $or: [
+          { name: { $regex: query, $options: "i" } }, // "i" is for case insensitive match
+          { specialization: { $regex: query, $options: "i" } }
+        ]
+      }).select("-password")
+    } else {
+      doctors = await Doctor.find({ isApproved: 'approved' }).select("-password")
+      // remove the password field when returned
+    }
 
     res.status(200).json({
       success: true,
