@@ -34,7 +34,7 @@ const connectDB = async () => {
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors(corsOptions))
-app.use('/api/v1/auth', authRoute) // domain/api/v1/auth/register
+app.use('/api/v1/auth', authRoute) // e.g. domain/api/v1/auth/register
 
 app.listen(port, () => {
   connectDB()
