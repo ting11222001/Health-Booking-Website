@@ -50,7 +50,8 @@ export const createReview = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: "Review Submitted"
+      message: "Review Submitted",
+      data: savedReview
     })
 
   } catch (error) {

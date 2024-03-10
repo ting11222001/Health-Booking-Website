@@ -58,7 +58,9 @@ export const getSingleDoctor = async (req, res) => {
 
   try {
 
-    const singleDoctor = await Doctor.findById(id).select("-password") // remove the password field when returned
+    const singleDoctor = await Doctor.findById(id)
+      .populate("reviews") // not just populate reviewsId, but the reviews content
+      .select("-password") // remove the password field when returned
 
     res.status(200).json({
       success: true,
