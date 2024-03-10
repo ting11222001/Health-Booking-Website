@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import authRoute from "./Routes/auth.js";
 import userRoute from "./Routes/user.js";
 import doctorRoute from "./Routes/doctor.js";
+import reviewRoute from "./Routes/review.js";
 
 dotenv.config()
 
@@ -39,6 +40,7 @@ app.use(cors(corsOptions))
 app.use('/api/v1/auth', authRoute) // e.g. domain/api/v1/auth/register
 app.use('/api/v1/users', userRoute) // e.g. domain/api/v1/users/
 app.use('/api/v1/doctors', doctorRoute) // e.g. domain/api/v1/doctors/
+app.use('/api/v1/reviews', reviewRoute) // e.g. domain/api/v1/reviews/
 
 app.listen(port, () => {
   connectDB()
