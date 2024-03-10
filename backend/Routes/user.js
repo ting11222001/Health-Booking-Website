@@ -1,12 +1,16 @@
 import express from "express"
 import { updateUser, deleteUser, getSingleUser, getAllUser } from "../Controllers/userController.js"
+import { authenticate, restrict } from "../auth/verifyToken.js"
 
 const router = express.Router()
 
-router.get('/', getAllUser)
-router.get('/:id', getSingleUser) // path params: a dynamic route to get one user by id
-router.put('/:id', updateUser)
-router.delete('/:id', deleteUser)
+// Path params ('/:id'): a dynamic route to get one user by id.
+// After the authentication middleware, apply the restrict modular.
+// e.g. only allow "patient" to access this getSingleUser route.
+router.get('/', authenticate, restrict(['admin']), getAllUser)
+router.get('/:id', authenticate, restrict(['patient']), getSingleUser)
+router.put('/:id', authenticate, restrict(['patient']), updateUser)
+router.delete('/:id', authenticate, restrict(['patient']), deleteUser)
 
 export default router
 
