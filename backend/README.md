@@ -21,5 +21,50 @@ npm run start
 
 ## Postman
 
-### Post (Register)
-Use raw Body in JSON format to post a dummy user. 
+### Request
+To send a request, go to an api tab:
+```bash
+Body > raw > JSON > give a JSON object with required fields.
+```
+
+### Roles
+admin:
+```bash
+{
+    "email": "admin@gmail.com",
+    "password": "1234"
+}
+```
+
+user (i.e. patient):
+```bash
+{
+    "email": "user2@gmail.com",
+    "password": "1234"
+}
+or
+{
+    "email": "user@gmail.com",
+    "password": "123"
+}
+```
+
+doctor:
+```bash
+{
+    "email": "qweqwe@gmail.com", or "doctor@gmail.com"
+    "password": "123"
+}
+```
+
+### Authentication
+After logged in, take the Bearer Token value from the "token" field:
+```bash
+paste the token in another api > Authorization > Type: Bearer Token > Token field.
+```
+
+### Authorization
+Restrict API route access based on the user roles:
+- Only "admin" can get all the users (i.e. "patients"/"doctors") data.
+- Only "patient" or "doctor" themselves can get/update/delete their own data.
+- Only "patient" can create reviews for the doctors.
