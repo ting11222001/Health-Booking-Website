@@ -43,6 +43,8 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleStickyHeader)
   })
 
+  const toggleMenu = () => menuRef.current.classList.toggle('show__menu')
+
   return (
     <header
       className="header flex items-center"
@@ -56,7 +58,11 @@ const Header = () => {
           </div>
 
           {/* === menu === */}
-          <div className="navigation">
+          <div
+            className="navigation"
+            ref={menuRef}
+            onClick={toggleMenu}
+          >
             <ul className="menu flex items-center gap-[2.7rem]">
               {
                 navLinks.map((link, index) => (
@@ -88,7 +94,10 @@ const Header = () => {
             <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]">Login</button>
           </Link>
 
-          <span className="md:hidden">
+          <span
+            className="md:hidden"
+            onClick={toggleMenu}
+          >
             <BiMenu className="w-6 h-6 cursor-pointer" />
           </span>
 
