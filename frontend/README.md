@@ -14,7 +14,7 @@ Currently, two official plugins are available:
 Create Vite and install libraries:
 ```bash
 npm create vite@latest ./
-npm uninstall react-router-dom react-icons react-spinners react-toastify swiper
+npm install react-router-dom react-icons react-spinners react-toastify swiper
 ```
 
 Install tailwind css:
