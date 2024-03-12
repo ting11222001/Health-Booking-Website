@@ -14,6 +14,7 @@ import avatarIcon from "../assets/images/avatar-icon.png"
 import DoctorList from "../components/Doctors/DoctorList"
 import faqImg from "../assets/images/faq-img.png"
 import FaqList from "../components/Faq/FaqList"
+import Testimonial from "../components/Testimonial/Testimonial"
 
 const Home = () => {
   return (
@@ -219,7 +220,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* === faq ection === */}
+      {/* === faq section === */}
       <section>
         <div className="container">
           <div className="flex justify-between gap-[50px] lg:gap-0">
@@ -235,6 +236,20 @@ const Home = () => {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* === testimonial section */}
+      <section>
+        <div className="container">
+          <div className="xl:w-[470px] mx-auto">
+            <h2 className="heading text-center">What our patients say</h2>
+            <p className="text__para text-center">
+              World-class care for everyone.
+            </p>
+          </div>
+
+          <Testimonial />
         </div>
       </section>
     </>
