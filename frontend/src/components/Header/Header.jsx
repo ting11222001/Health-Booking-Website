@@ -100,8 +100,6 @@ const Header = () => {
               <BiMenu className="w-6 h-6 cursor-pointer" />
             </span>
           </div>
-
-          {/* WIP */}
         </div>
       </div>
     </header>
