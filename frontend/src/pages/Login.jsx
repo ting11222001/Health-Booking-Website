@@ -11,7 +11,7 @@ const Login = () => {
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
     // name will be either "email" or "password"
-    console.log(formData)
+    // console.log(formData)
   }
 
   return (
@@ -50,7 +50,7 @@ const Login = () => {
             />
           </div>
 
-          <div className="mt-7">
+          <div className="mt-5">
             <button type="submit" className="w-full btn">Login</button>
           </div>
 
