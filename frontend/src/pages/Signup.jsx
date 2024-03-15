@@ -1,13 +1,10 @@
 import signupImg from "../assets/images/signup.gif"
-import avatar from "../assets/images/doctor-img02.png"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import uploadImageCloudinary from "../utils/uploadCloudinary"
 import { BASE_URL } from "../config"
 import { toast } from "react-toastify"
 import HashLoader from "react-spinners/HashLoader"
-
-console.log("BASE_URL: ", `${BASE_URL}/auth/register`)
 
 const Signup = () => {
   const [selectedFile, setSelectedFile] = useState(null)
@@ -66,7 +63,7 @@ const Signup = () => {
       navigate('/login')
 
     } catch (error) {
-      toast.error(error)
+      toast.error(error.message)
       setLoading(false)
     }
   }
