@@ -27,3 +27,9 @@ npx tailwindcss init -p
 
 # ... the rest followed the documentaton
 ```
+
+## Run the frontend
+
+```bash
+npm run dev
+```
