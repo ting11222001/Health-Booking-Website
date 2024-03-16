@@ -6,8 +6,8 @@ const initialState = {
   user: localStorage.getItem('user') != undefined
     ? JSON.parse(localStorage.getItem('user'))
     : null,
-  role: localStorage.getItem('role') || null,
-  token: localStorage.getItem('token') || null,
+  role: JSON.parse(localStorage.getItem('role')) || null,
+  token: JSON.parse(localStorage.getItem('token')) || null,
 }
 
 // This will be imported in the UI components
