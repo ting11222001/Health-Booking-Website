@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from 'react'
 import { createContext, useReducer } from 'react'
 
 const initialState = {
-  user: null,
-  role: null,
-  token: null,
+  user: localStorage.getItem('user') != undefined
+    ? JSON.parse(localStorage.getItem('user'))
+    : null,
+  role: localStorage.getItem('role') || null,
+  token: localStorage.getItem('token') || null,
 }
 
 // This will be imported in the UI components
@@ -44,6 +47,14 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState)
 
   console.log("AuthContext state: ", state)
+
+  // Save the user logged in status in local storage so that the user
+  // can stay logged in even when he refreshed the page before logged out.
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(state.user))
+    localStorage.setItem('token', JSON.stringify(state.token))
+    localStorage.setItem('role', JSON.stringify(state.role))
+  }, [state])
 
   return <AuthContext.Provider
     value={{

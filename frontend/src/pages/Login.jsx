@@ -45,7 +45,7 @@ const Login = () => {
         throw new Error(result.message)
       }
 
-      // update the global state
+      // update the global state of auth
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: {
@@ -103,7 +103,7 @@ const Login = () => {
 
           <div className="mt-5">
             <button type="submit" className="w-full btn">
-              {loading ? <HashLoader size={35} color="#ffffff" /> : 'Log in'}
+              {loading ? <HashLoader size={25} color="#ffffff" /> : 'Log in'}
             </button>
           </div>
 
