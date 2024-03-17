@@ -100,7 +100,7 @@ export const getAllUser = async (req, res) => {
 
 export const getUserProfile = async (req, res) => {
   const userId = req.userId
-  console.log("userId: ", userId)
+  // console.log("userId: ", userId)
 
   try {
     const user = await User.findById(userId)
@@ -115,7 +115,7 @@ export const getUserProfile = async (req, res) => {
     }
 
     const { password, ...rest } = user._doc
-    console.log("user._doc: ", user._doc)
+    // console.log("user._doc: ", user._doc)
 
     res.status(200).json({
       success: true,

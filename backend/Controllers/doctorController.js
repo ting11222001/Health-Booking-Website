@@ -119,10 +119,12 @@ export const getAllDoctor = async (req, res) => {
 }
 
 export const getDoctorProfile = async (req, res) => {
-  const doctorId = req.doctorId
+  const doctorId = req.userId
+  // console.log("doctorId: ", doctorId)
 
   try {
     const doctor = await Doctor.findById(doctorId)
+    // console.log("doctor: ", doctor)
 
     if (!doctor) {
       return res.status(404).json(
