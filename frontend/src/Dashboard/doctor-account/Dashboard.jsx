@@ -8,6 +8,7 @@ import { IoInformationCircle } from "react-icons/io5";
 import starIcon from '../../assets/images/Star.png'
 import DoctorAbout from "../../pages/Doctors/DoctorAbout"
 import Profile from "./Profile"
+import Appointments from "./Appointments"
 
 const Dashboard = () => {
 
@@ -86,7 +87,10 @@ const Dashboard = () => {
                     </div>
                   }
 
-                  {tab === 'appointments' && <div>Appointments</div>}
+                  {tab === 'appointments' &&
+                    <div>
+                      <Appointments appointments={data.appointments} />
+                    </div>}
 
                   {tab === 'settings' &&
                     <div>
