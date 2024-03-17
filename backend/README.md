@@ -68,3 +68,9 @@ Restrict API route access based on the user roles:
 - Only "admin" can get all the users (i.e. "patients"/"doctors") data.
 - Only "patient" or "doctor" themselves can get/update/delete their own data.
 - Only "patient" can create reviews for the doctors.
+
+
+### Doctors specific
+- Only "approved" doctors will be shown by getAllDoctors API.
+- When a doctor is registered, his/her default "isApproved" field is "pending".
+- Doctor bio, specilization are not in the DoctorSchema yet.
