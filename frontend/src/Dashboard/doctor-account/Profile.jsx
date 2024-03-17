@@ -1,13 +1,18 @@
-import { useState } from "react"
+/* eslint-disable react/prop-types */
+import { useState, useContext, useEffect } from "react"
 import { AiOutlineDelete } from "react-icons/ai"
 import uploadImageCloudinary from "../../utils/uploadCloudinary"
+import { BASE_URL } from "../../config"
+import { toast } from "react-toastify"
+import { AuthContext } from "../../context/AuthContext"
 
-
-const Profile = () => {
+const Profile = ({ doctorData }) => {
+  const { token } = useContext(AuthContext)
 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    password: '',
     phone: '',
     bio: '',
     gender: '',
@@ -27,6 +32,25 @@ const Profile = () => {
     photo: null
   })
 
+  // Prefill data into the edit form
+  useEffect(() => {
+    setFormData({
+      name: doctorData?.name,
+      email: doctorData?.email,
+      password: doctorData?.password,
+      phone: doctorData?.phone,
+      bio: doctorData?.bio,
+      gender: doctorData?.gender,
+      specialization: doctorData?.specialization,
+      ticketPrice: doctorData?.ticketPrice,
+      qualifications: doctorData?.qualifications,
+      experiences: doctorData?.experiences,
+      timeSlots: doctorData?.timeSlots,
+      about: doctorData?.about,
+      photo: doctorData?.photo,
+    })
+  }, [doctorData])
+
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
@@ -37,10 +61,6 @@ const Profile = () => {
 
     // console.log(data)
     setFormData({ ...formData, photo: data?.secure_url })
-  }
-
-  const updateProfileHandler = async (e) => {
-    e.preventDefault()
   }
 
   // reusable function for adding item
@@ -135,6 +155,33 @@ const Profile = () => {
   const deleteTimeSlot = (e, index) => {
     e.preventDefault()
     deleteItem('timeSlots', index)
+  }
+
+  // final submit function
+  const updateProfileHandler = async (e) => {
+    e.preventDefault()
+
+    try {
+      const res = await fetch(`${BASE_URL}/doctors/${doctorData._id}`, {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(formData)
+      })
+
+      const result = await res.json()
+
+      if (!res.ok) {
+        throw new Error(result.message)
+      }
+
+      toast.success(result.message)
+
+    } catch (error) {
+      toast.error(error.message)
+    }
   }
 
   return (

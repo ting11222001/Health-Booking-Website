@@ -55,22 +55,24 @@ const Dashboard = () => {
                             {data.specialization}
                           </span>
 
-                          <h3 className="text-[22px] leading-9 font-bold text-headingColor mt-3">{data.name}</h3>
+                          <h3 className="text-[22px] leading-9 font-bold text-headingColor mt-3">
+                            {data.name}
+                          </h3>
 
                           <div className="flex items-center gap-[6px]">
                             <span className="flex items-center gap-[6px] text-headingColor text-[14px]
                           leading-5 lg:text-[16px] lg:leading-6 font-semibold">
                               <img src={starIcon} alt="" />
-                              4.5
+                              {data.averageRating}
                             </span>
                             <span className="text-textColor text-[14px]
                           leading-5 lg:text-[16px] lg:leading-6 font-semibold">
-                              (233)
+                              ({data.totalRating})
                             </span>
                           </div>
 
                           <p className="text__para font-[15px] lg:max-w-[390px] leading-6">
-                            doctor bio
+                            {data.bio}
                           </p>
                         </div>
                       </div>
@@ -88,7 +90,7 @@ const Dashboard = () => {
 
                   {tab === 'settings' &&
                     <div>
-                      <Profile />
+                      <Profile doctorData={data} />
                     </div>}
                 </div>
               </div>
