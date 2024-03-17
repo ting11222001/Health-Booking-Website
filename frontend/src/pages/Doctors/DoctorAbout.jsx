@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { formatDate } from "../../../src/utils/formatDate"
 
 const DoctorAbout = ({ name, about, qualifications, experiences }) => {
@@ -12,6 +13,7 @@ const DoctorAbout = ({ name, about, qualifications, experiences }) => {
         </h3>
         <p className="text__para">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque veritatis mollitia aperiam harum omnis assumenda. Fugit accusamus aliquam eos. Recusandae tenetur nostrum sed cum iusto odio placeat similique molestiae praesentium.
+          {about}
         </p>
       </div>
 
@@ -19,9 +21,11 @@ const DoctorAbout = ({ name, about, qualifications, experiences }) => {
       <div className="mt-12">
         <h3 className="text-[20px] leading-[30px] text-headingColor font-semibold">
           Education
+          {qualifications}
         </h3>
 
         <ul className="pt-4 md:p-5">
+          {experiences}
           <li className="flex flex-col sm:flex-row sm:justify-between sm:items-end 
           md:gap-5 mb-[30px]">
             <div>
