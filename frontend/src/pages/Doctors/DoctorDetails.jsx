@@ -117,7 +117,6 @@ const DoctorDetails = () => {
             {/* === Right Panel === */}
             <div>
               <SidePanel
-                doctorId={doctor._id}
                 ticketPrice={ticketPrice}
                 timeSlots={timeSlots}
               />
