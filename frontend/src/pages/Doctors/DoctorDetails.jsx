@@ -114,9 +114,13 @@ const DoctorDetails = () => {
               </div>
             </div>
 
-            {/* === Right content === */}
+            {/* === Right Panel === */}
             <div>
-              <SidePanel />
+              <SidePanel
+                doctorId={doctor._id}
+                ticketPrice={ticketPrice}
+                timeSlots={timeSlots}
+              />
             </div>
           </div>
         )}
