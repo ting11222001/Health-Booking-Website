@@ -10,9 +10,10 @@ export const getCheckoutSession = async (req, res) => {
     const user = await User.findById(req.userId)
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+    // console.log("stripe: ", stripe)
 
     // create stripe checkout session
-    const session = await stripe.checkout.sesions.create({
+    const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: "payment",
       success_url: `${process.env.CLIENT_SITE_URL}/checkout-success`,
@@ -52,10 +53,10 @@ export const getCheckoutSession = async (req, res) => {
     })
 
   } catch (error) {
+    console.log(error)
     res.status(500).json({
       success: false,
-      message: "Error: checkout session",
-      session
+      message: "Error: checkout session"
     })
   }
 }
