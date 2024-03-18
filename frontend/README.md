@@ -15,6 +15,7 @@ Create Vite and install libraries:
 ```bash
 npm create vite@latest ./
 npm install react-router-dom react-icons react-spinners react-toastify swiper
+npm i stripe
 ```
 
 Install tailwind css:
@@ -26,4 +27,21 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
 # ... the rest followed the documentaton
+```
+
+## Installation (when first time pull the project down)
+
+```bash
+npm install
+```
+
+## Run the frontend
+
+```bash
+npm run dev
+```
+
+## Stripe for testing checkout
+```bash
+card information: 4242 4242 4242 4242
 ```
