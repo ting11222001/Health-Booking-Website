@@ -74,3 +74,6 @@ Restrict API route access based on the user roles:
 - Only "approved" doctors will be shown by getAllDoctors API.
 - When a doctor is registered, his/her default "isApproved" field is "pending".
 - Doctor bio, specilization are not in the DoctorSchema yet.
+
+### Patients specific
+- Only "patient" can create a review for the doctors.
