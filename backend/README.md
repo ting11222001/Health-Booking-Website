@@ -5,7 +5,13 @@ Include step-by-step instructions on how to install and set up the backend proje
 ## Installation
 
 ```bash
-# Example installation command
+npm i express mongodb mongoose cors jsonwebtoken cookie-parser dotenv bcryptjs nodemon
+npm i stripe
+```
+
+## Installation (when first time pull the project down)
+
+```bash
 npm install
 ```
 
