@@ -7,8 +7,10 @@ import reviewRouter from "./review.js"
 const router = express.Router()
 
 // Path params ('/:id'): a dynamic route to get one doctor by id.
-router.get('/', authenticate, restrict(['admin']), getAllDoctor)
-router.get('/:id', authenticate, restrict(['doctor']), getSingleDoctor)
+// router.get('/', authenticate, restrict(['admin']), getAllDoctor)
+router.get('/', getAllDoctor)
+// router.get('/:id', authenticate, restrict(['doctor']), getSingleDoctor)
+router.get('/:id', getSingleDoctor)
 router.put('/:id', authenticate, restrict(['doctor']), updateDoctor)
 router.delete('/:id', authenticate, restrict(['doctor']), deleteDoctor)
 
