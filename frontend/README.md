@@ -40,3 +40,8 @@ npm install
 ```bash
 npm run dev
 ```
+
+## Stripe for testing checkout
+```bash
+card information: 4242 4242 4242 4242
+```
