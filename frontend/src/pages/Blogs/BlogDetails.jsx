@@ -4,7 +4,6 @@ import useFetchData from "../../hooks/useFetchData"
 import Loader from "../../components/Loading/Loading"
 import Error from "../../components/Error/Error"
 import { useParams } from "react-router-dom"
-import tempImg from "../../assets/images/icon01.png"
 import { formatDate } from "../../utils/formatDate"
 import BlogArticle from "./BlogArticle"
 import BlogDiscussion from "./BlogDiscussion"
@@ -16,8 +15,10 @@ const BlogDetails = () => {
 
   const {
     title,
-    content
+    content,
+    doctor
   } = blog
+
   return (
     <section>
       <div className="max-w-[1170px] px-5 mx-auto">
@@ -32,7 +33,7 @@ const BlogDetails = () => {
               {/* === Doctor section === */}
               <div className="flex items-center gap-5">
                 <figure className="max-w-[200px] max-h-[200px]">
-                  <img src={tempImg} alt="" className="w-full" />
+                  <img src={doctor?.photo} alt="" className="w-full" />
                 </figure>
 
                 <div>
@@ -42,7 +43,7 @@ const BlogDetails = () => {
                   <div className="flex items-center gap-[6px]">
                     <span className="flex items-center gap-[6px] text-[14px] leading-5
                   lg:text-[16px] lg:leading-7 font-semibold text-headingColor">
-                      Doctor name
+                      {doctor?.name}
                     </span>
                     <span className="text-[14px] leading-5
                   lg:text-[16px] lg:leading-7 font-[400] text-textColor">
@@ -78,7 +79,6 @@ const BlogDetails = () => {
                   <BlogArticle
                     title={title}
                     content={content}
-                    author={"doctor"}
                   />
                 }
                 {
