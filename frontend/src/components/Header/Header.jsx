@@ -14,8 +14,8 @@ const navLinks = [
     display: 'Find a Doctor'
   },
   {
-    path: '/services',
-    display: 'Services'
+    path: '/blog',
+    display: 'Blog'
   },
   {
     path: '/contact',
