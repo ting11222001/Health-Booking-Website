@@ -74,6 +74,7 @@ Restrict API route access based on the user roles:
 - Only "admin" can get all the users (i.e. "patients"/"doctors") data.
 - Only "patient" or "doctor" themselves can get/update/delete their own data.
 - Only "patient" can create reviews for the doctors.
+- Anyone can submit a feedback in the Contact Us page.
 
 
 ### Doctors specific
