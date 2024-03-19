@@ -26,12 +26,28 @@ export const getAllReviews = async (req, res) => {
 // When a review is created, the "doctor" and "user" fields of the request will be created
 // according to the values.
 export const createReview = async (req, res) => {
+  /*
+  req.body: {
+    reviewText: 'water',
+    rating: 3
+  }
+   */
+
   if (!req.body.doctor) {
-    req.body.doctor = req.params.doctorId
+    req.body.doctor = req.params.doctorId // req.params: { doctorId: '65f65e77f4a06dc7a086b263' }
   }
   if (!req.body.user) {
-    req.body.user = req.userId
+    req.body.user = req.userId // req.userId is from the "authenticate" function in verifyToken.js
   }
+
+  /*
+  req.body: {
+    reviewText: 'water',
+    rating: 3,
+    doctor: '65f65e77f4a06dc7a086b263',
+    user: '65f4de9be8d53c7532be1331'
+  }
+  */
 
   // once we have all the details, save this new review to the database
   const newReview = new Review(req.body)
