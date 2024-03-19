@@ -2,7 +2,7 @@ import Blog from "../Models/BlogSchema.js"
 import Doctor from "../Models/DoctorSchema.js"
 
 export const createBlog = async (req, res) => {
-  const id = req.params.doctorId // "doctorId": depends on the id variable passed from the routes
+  const id = req.params.doctorId // "doctorId": depends on the id variable passed from the routes, /:doctorId
   const newBlog = new Blog(req.body)
 
   try {
