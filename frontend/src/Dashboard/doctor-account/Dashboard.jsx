@@ -101,13 +101,13 @@ const Dashboard = () => {
 
                   {tab === 'create-blog' &&
                     <div>
-                      <CreateBlog />
+                      <CreateBlog doctorData={data} />
                     </div>
                   }
 
                   {tab === 'list-blog' &&
                     <div>
-                      <ListBlog />
+                      <ListBlog doctorData={data} />
                     </div>
                   }
                 </div>

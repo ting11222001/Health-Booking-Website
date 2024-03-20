@@ -123,7 +123,7 @@ export const getDoctorProfile = async (req, res) => {
   // console.log("doctorId: ", doctorId)
 
   try {
-    const doctor = await Doctor.findById(doctorId)
+    const doctor = await Doctor.findById(doctorId).populate("blogs") // populate blogs content, not just blogIds 
     // console.log("doctor: ", doctor)
 
     if (!doctor) {

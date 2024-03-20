@@ -1,12 +1,11 @@
+/* eslint-disable react/prop-types */
 
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { IoInformationCircle } from "react-icons/io5";
 import { BASE_URL } from "../../config"
 import { toast } from "react-toastify"
-import { AuthContext } from "../../context/AuthContext"
 
-const CreateBlog = () => {
-  const { user } = useContext(AuthContext)
+const CreateBlog = ({ doctorData }) => {
 
   const [formData, setFormData] = useState({
     title: '',
@@ -24,7 +23,7 @@ const CreateBlog = () => {
     e.preventDefault()
 
     try {
-      const res = await fetch(`${BASE_URL}/blogs/${user._id}`, {
+      const res = await fetch(`${BASE_URL}/blogs/${doctorData?._id}`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
