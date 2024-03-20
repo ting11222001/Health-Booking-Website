@@ -5,6 +5,6 @@ const router = express.Router()
 
 router.post('/:doctorId', createBlog)
 router.get('/', getAllBlog)
-router.get('/:id', getSingleBlog)
+router.get('/:blogId', getSingleBlog)
 
 export default router
