@@ -9,6 +9,8 @@ import starIcon from '../../assets/images/Star.png'
 import DoctorAbout from "../../pages/Doctors/DoctorAbout"
 import Profile from "./Profile"
 import Appointments from "./Appointments"
+import CreateBlog from "./CreateBlog"
+import ListBlog from "./ListBlog"
 
 const Dashboard = () => {
 
@@ -96,6 +98,18 @@ const Dashboard = () => {
                     <div>
                       <Profile doctorData={data} />
                     </div>}
+
+                  {tab === 'create-blog' &&
+                    <div>
+                      <CreateBlog doctorData={data} />
+                    </div>
+                  }
+
+                  {tab === 'list-blog' &&
+                    <div>
+                      <ListBlog doctorData={data} />
+                    </div>
+                  }
                 </div>
               </div>
             </div>

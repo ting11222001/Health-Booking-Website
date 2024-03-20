@@ -1,5 +1,6 @@
 import Home from "../pages/Home"
-import Services from "../pages/Services"
+import Blog from "../pages/Blogs/Blog"
+import BlogDetails from "../pages/Blogs/BlogDetails"
 import Login from "../pages/Login"
 import Signup from "../pages/Signup"
 import Contact from "../pages/Contact"
@@ -16,7 +17,8 @@ const Routers = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/services" element={<Services />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:id" element={<BlogDetails />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Signup />} />
       <Route path="/contact" element={<Contact />} />

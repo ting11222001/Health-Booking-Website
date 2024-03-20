@@ -3,12 +3,20 @@ import Doctor from "../Models/DoctorSchema.js"
 
 export const createBlog = async (req, res) => {
   const id = req.params.doctorId // "doctorId": depends on the id variable passed from the routes, /:doctorId
-  const newBlog = new Blog(req.body)
+  const { title, content } = req.body
 
   try {
+    // Since I need to add this doctorId from the route params,
+    // I need to specify the new Blog object like this before saving it to the Blog model.
+    const newBlog = new Blog({
+      title,
+      content,
+      doctor: id
+    })
 
     const savedBlog = await newBlog.save()
 
+    // Then, add a new Blog object to the "blogs" field in the Doctor model
     await Doctor.findByIdAndUpdate(id, {
       $push: {
         blogs: savedBlog._id
@@ -63,11 +71,11 @@ export const getAllBlog = async (req, res) => {
 }
 
 export const getSingleBlog = async (req, res) => {
-  const id = req.params.id
+  const id = req.params.blogId
 
   try {
 
-    const singleBlog = await Blog.findById(id)
+    const singleBlog = await Blog.findById(id).populate('doctor')
 
     res.status(200).json({
       success: true,
@@ -76,7 +84,6 @@ export const getSingleBlog = async (req, res) => {
     })
 
   } catch (error) {
-    console.log(error)
     res.status(404).json({
       success: false,
       message: 'No Blog found'
