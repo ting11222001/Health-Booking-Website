@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom"
 import { formatDate } from "../../utils/formatDate"
 import BlogArticle from "./BlogArticle"
 import BlogDiscussion from "./BlogDiscussion"
+import InfoPanel from "./InfoPanel"
+import tempImg from "../../assets/images/hero-bg.png"
 
 const BlogDetails = () => {
   const { id } = useParams()
@@ -30,30 +32,31 @@ const BlogDetails = () => {
           <div className="grid md:grid-cols-3 gap-[50px]">
             {/* === Left content === */}
             <div className="md:col-span-2">
-              {/* === Doctor section === */}
-              <div className="flex items-center gap-5">
-                <figure className="max-w-[200px] max-h-[200px]">
-                  <img src={doctor?.photo} alt="" className="w-full" />
+              {/* === Intro section === */}
+              <div>
+                <figure className="w-full h-full">
+                  <img src={tempImg} alt="" className="w-full" />
                 </figure>
 
-                <div>
-                  <h3 className="text-headingColor text-[22px] leading-9 font-bold mt-3">
-                    {title}
-                  </h3>
-                  <div className="flex items-center gap-[6px]">
+                <div className="mt-2 flex items-center gap-5">
+                  <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
+                    <img src={doctor?.photo} className="w-full rounded-full" alt="" />
+                  </figure>
+                  <div className="gap-[6px]">
                     <span className="flex items-center gap-[6px] text-[14px] leading-5
                   lg:text-[16px] lg:leading-7 font-semibold text-headingColor">
-                      {doctor?.name}
+                      Dr. {doctor?.name}
                     </span>
-                    <span className="text-[14px] leading-5
-                  lg:text-[16px] lg:leading-7 font-[400] text-textColor">
-                      {formatDate(blog.createdAt)}
+                    <span className="text-[14px] leading-3
+                  lg:text-[16px] lg:leading-5 font-[400] text-textColor">
+                      Published on {formatDate(blog.createdAt)}
                     </span>
                   </div>
                 </div>
+
               </div>
 
-              {/* === About/Feedback section === */}
+              {/* === Tab button section === */}
               <div className="mt-[50px] border-b border-solid border-[#0066ff34]">
                 <button
                   onClick={() => setTab('article')}
@@ -72,7 +75,7 @@ const BlogDetails = () => {
                 </button>
               </div>
 
-              {/* === About doctor section === */}
+              {/* === Tab content section === */}
               <div className="mt-[50px]">
                 {
                   tab === "article" &&
@@ -87,6 +90,13 @@ const BlogDetails = () => {
                   />
                 }
               </div>
+            </div>
+
+            {/* === Right Panel === */}
+            <div>
+              <InfoPanel
+                doctor={doctor}
+              />
             </div>
           </div>
         )}

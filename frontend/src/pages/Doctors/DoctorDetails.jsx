@@ -74,7 +74,7 @@ const DoctorDetails = () => {
                 </div>
               </div>
 
-              {/* === About/Feedback section === */}
+              {/* === Tab button section === */}
               <div className="mt-[50px] border-b border-solid border-[#0066ff34]">
                 <button
                   onClick={() => setTab('about')}
@@ -93,7 +93,7 @@ const DoctorDetails = () => {
                 </button>
               </div>
 
-              {/* === About doctor section === */}
+              {/* === Tab content section === */}
               <div className="mt-[50px]">
                 {
                   tab === "about" &&
