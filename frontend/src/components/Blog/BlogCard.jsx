@@ -17,13 +17,10 @@ const BlogCard = ({ blog }) => {
         {title}
       </h2>
 
-      <div className="mt-[18px] lg:mt-5 flex items-center justify-between">
-        <div>
-          <p className="text-[14px] leading-6 font-[400] text-textColor">
-            {content}
-          </p>
-        </div>
-
+      <div className="mt-[18px] lg:mt-5 flex items-center justify-between gap-5">
+        <p className="text-[14px] leading-6 font-[400] text-textColor truncate overflow-hidden w-64">
+          {content}
+        </p>
         <Link
           to={`/blog/${blog._id}`}
           className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E]
@@ -32,7 +29,6 @@ const BlogCard = ({ blog }) => {
           <BiRightArrowAlt className="group-hover:text-white w-6 h-5" />
         </Link>
       </div>
-
     </div>
   )
 }
