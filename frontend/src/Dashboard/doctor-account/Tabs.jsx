@@ -56,6 +56,27 @@ const Tabs = ({ tab, setTab }) => {
           Profile
         </button>
 
+        <button
+          onClick={() => setTab('create-blog')}
+          className={`
+          ${tab === "create-blog"
+              ? "bg-indigo-100 text-primaryColor"
+              : "bg-transparent text-headingColor"
+            } w-full btn mt-0 rounded-md`}>
+          Create Blog
+        </button>
+
+        <button
+          onClick={() => setTab('list-blog')}
+          className={`
+          ${tab === "list-blog"
+              ? "bg-indigo-100 text-primaryColor"
+              : "bg-transparent text-headingColor"
+            } w-full btn mt-0 rounded-md`}>
+          All Blog Posts
+        </button>
+
+
         <div className="mt-[100px] w-full">
           <button
             className="w-full bg-[#181A1E] p-3 text-[16px] leading-7 rounded-md text-white"
