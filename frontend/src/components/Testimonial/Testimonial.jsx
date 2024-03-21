@@ -2,7 +2,7 @@ import { Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/pagination"
-import patientAvatar from "../../assets/images/patient-avatar.png"
+import patient4 from "../../assets/images/patient-4.png"
 import { HiStar } from "react-icons/hi"
 
 const Testimonial = () => {
@@ -28,7 +28,7 @@ const Testimonial = () => {
         <SwiperSlide>
           <div className="py-[30px] px-5 rounded-3">
             <div className="flex items-center gap-[13px]">
-              <img src={patientAvatar} alt="" />
+              <img src={patient4} alt="" className="w-24 rounded-lg" />
               <div>
                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
                   Wayne Collins
@@ -53,7 +53,7 @@ const Testimonial = () => {
         <SwiperSlide>
           <div className="py-[30px] px-5 rounded-3">
             <div className="flex items-center gap-[13px]">
-              <img src={patientAvatar} alt="" />
+              <img src={patient4} alt="" className="w-24 rounded-lg" />
               <div>
                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
                   John Smiths
@@ -78,7 +78,7 @@ const Testimonial = () => {
         <SwiperSlide>
           <div className="py-[30px] px-5 rounded-3">
             <div className="flex items-center gap-[13px]">
-              <img src={patientAvatar} alt="" />
+              <img src={patient4} alt="" className="w-24 rounded-lg" />
               <div>
                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
                   Adam Joy
@@ -103,7 +103,7 @@ const Testimonial = () => {
         <SwiperSlide>
           <div className="py-[30px] px-5 rounded-3">
             <div className="flex items-center gap-[13px]">
-              <img src={patientAvatar} alt="" />
+              <img src={patient4} alt="" className="w-24 rounded-lg" />
               <div>
                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
                   Aaron Stringer
