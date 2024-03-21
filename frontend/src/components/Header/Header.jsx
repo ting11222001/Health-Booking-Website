@@ -3,6 +3,7 @@ import logo from "../../assets/images/logo.png"
 import { NavLink, Link } from "react-router-dom"
 import { BiMenu } from "react-icons/bi"
 import { AuthContext } from "../../context/AuthContext"
+import { ProfileContext } from "../../context/ProfileContext"
 
 const navLinks = [
   {
@@ -48,6 +49,8 @@ const Header = () => {
   const toggleMenu = () => menuRef.current.classList.toggle('show__menu')
 
   const { dispatch } = useContext(AuthContext)
+
+  const { profile } = useContext(ProfileContext)
 
   const handleLogOut = () => {
     localStorage.removeItem('user')
@@ -102,7 +105,7 @@ const Header = () => {
                       to={`${role === "doctor" ? "/doctors/profile/me" : "/users/profile/me"}`}
                     >
                       <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
-                        <img src={user.photo} className="w-full rounded-full" alt="" />
+                        <img src={profile?.photo} className="w-full rounded-full" alt="" />
                       </figure>
                     </Link>
                   </div>

@@ -5,9 +5,15 @@ import uploadImageCloudinary from "../../utils/uploadCloudinary"
 import { BASE_URL } from "../../config"
 import { toast } from "react-toastify"
 import { AuthContext } from "../../context/AuthContext"
+import HashLoader from "react-spinners/HashLoader"
+import { ProfileContext } from "../../context/ProfileContext"
 
 const Profile = ({ doctorData }) => {
   const { token } = useContext(AuthContext)
+
+  const { dispatch } = useContext(ProfileContext)
+
+  const [loading, setLoading] = useState(false)
 
   const [formData, setFormData] = useState({
     name: '',
@@ -50,6 +56,7 @@ const Profile = ({ doctorData }) => {
       photo: doctorData?.photo,
     })
   }, [doctorData])
+
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -160,6 +167,7 @@ const Profile = ({ doctorData }) => {
   // final submit function
   const updateProfileHandler = async (e) => {
     e.preventDefault()
+    setLoading(true)
 
     try {
       const res = await fetch(`${BASE_URL}/doctors/${doctorData._id}`, {
@@ -177,10 +185,20 @@ const Profile = ({ doctorData }) => {
         throw new Error(result.message)
       }
 
+      // update the global state of profile
+      dispatch({
+        type: "PROFILE_UPDATE",
+        payload: {
+          profile: result.data
+        }
+      })
+
+      setLoading(false)
       toast.success(result.message)
 
     } catch (error) {
       toast.error(error.message)
+      setLoading(false)
     }
   }
 
@@ -555,7 +573,7 @@ const Profile = ({ doctorData }) => {
             onClick={updateProfileHandler}
             className="bg-primaryColor text-white text-[18px] leading-[30px] w-full
           py-3 px-4 rounded-lg">
-            Update Profile
+            {loading ? <HashLoader size={25} color="#ffffff" /> : 'Update Profile'}
           </button>
         </div>
 
