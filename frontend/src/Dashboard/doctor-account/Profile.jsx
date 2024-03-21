@@ -6,9 +6,12 @@ import { BASE_URL } from "../../config"
 import { toast } from "react-toastify"
 import { AuthContext } from "../../context/AuthContext"
 import HashLoader from "react-spinners/HashLoader"
+import { ProfileContext } from "../../context/ProfileContext"
 
 const Profile = ({ doctorData }) => {
   const { token } = useContext(AuthContext)
+
+  const { dispatch } = useContext(ProfileContext)
 
   const [loading, setLoading] = useState(false)
 
@@ -53,6 +56,7 @@ const Profile = ({ doctorData }) => {
       photo: doctorData?.photo,
     })
   }, [doctorData])
+
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -180,6 +184,14 @@ const Profile = ({ doctorData }) => {
       if (!res.ok) {
         throw new Error(result.message)
       }
+
+      // update the global state of profile
+      dispatch({
+        type: "PROFILE_UPDATE",
+        payload: {
+          profile: result.data
+        }
+      })
 
       setLoading(false)
       toast.success(result.message)
