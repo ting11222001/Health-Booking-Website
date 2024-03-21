@@ -3,14 +3,16 @@ import { useNavigate } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
 import uploadImageCloudinary from "../../utils/uploadCloudinary"
 import { BASE_URL } from "../../config"
-import { Slide, toast } from "react-toastify"
+import { toast } from "react-toastify"
 import HashLoader from "react-spinners/HashLoader"
 import { AuthContext } from "../../context/AuthContext"
+import { ProfileContext } from "../../context/ProfileContext"
 
 const Profile = ({ user }) => {
   const [selectedFile, setSelectedFile] = useState(null)
   const [loading, setLoading] = useState(false)
   const { token } = useContext(AuthContext)
+  const { dispatch } = useContext(ProfileContext)
 
   const [formData, setFormData] = useState({
     name: '',
@@ -63,14 +65,22 @@ const Profile = ({ user }) => {
         body: JSON.stringify(formData)
       })
 
-      const { message } = await res.json()
+      const result = await res.json()
 
       if (!res.ok) {
-        throw new Error(message)
+        throw new Error(result.message)
       }
 
+      // update the global state of profile
+      dispatch({
+        type: "PROFILE_UPDATE",
+        payload: {
+          profile: result.data
+        }
+      })
+
       setLoading(false)
-      toast.success(message)
+      toast.success(result.message)
       navigate('/users/profile/me')
 
     } catch (error) {
@@ -78,6 +88,7 @@ const Profile = ({ user }) => {
       setLoading(false)
     }
   }
+
   return (
     <div className="mt-10">
       <form onSubmit={submitHandler}>
