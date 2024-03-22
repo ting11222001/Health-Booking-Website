@@ -59,12 +59,12 @@ const Home = () => {
 
             {/* === hero right === */}
             <div className="flex gap-[30px] justify-end">
-              <div>
-                <img className="w-full" src={heroImg01} alt="" />
+              <div className="w-1/2">
+                <img className="object-contain rounded-lg" src={heroImg01} alt="" />
               </div>
-              <div className="mt-[30px]">
-                <img className="w-full mb-[30px]" src={heroImg02} alt="" />
-                <img className="w-full" src={heroImg03} alt="" />
+              <div className="w-1/2 mt-[30px]">
+                <img className="w-80 object-contain rounded-lg mb-[30px]" src={heroImg03} alt="" />
+                <img className="w-64 object-scale-down rounded-lg" src={heroImg02} alt="" />
               </div>
             </div>
           </div>
@@ -178,7 +178,7 @@ const Home = () => {
 
             {/* === feature img === */}
             <div className="relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0">
-              <img src={featureImg} className="w-3/4" alt="" />
+              <img src={featureImg} className="w-3/4 rounded-lg" alt="" />
 
               <div className="w-[150px] lg:w-[248px] bg-white absolute bottom-[50px] left-0 md:bottom-[100px] md:left-5 z-20 p-2 pb-3 lg:pt-4 lg:px-4 lg:pb-[26px] rounded-[10px]">
                 <div className="flex items-center justify-between">
@@ -225,12 +225,12 @@ const Home = () => {
         <div className="container">
           <div className="flex justify-between gap-[50px] lg:gap-0">
             <div className="w-1/2 hidden md:block">
-              <img src={faqImg} alt="" />
+              <img src={faqImg} alt="" className="w-3/4 rounded-lg" />
             </div>
 
             <div className="w-full md:w-1/2">
               <h2 className="heading">
-                Most uestions from our beloved patients
+                Most questions from our beloved patients
               </h2>
               <FaqList />
             </div>
