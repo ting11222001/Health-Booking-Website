@@ -44,6 +44,8 @@ app.use('/api/v1/bookings', bookingRoute) // e.g. domain/api/v1/bookings/
 app.use('/api/v1/blogs', blogRoute) // e.g. domain/api/v1/blogs/
 app.use('/api/v1/feedbacks', feedbackRoute) // e.g. domain/api/v1/feedbacks/
 
+// Handle CORS preflight requests explicitly
+app.options('*', cors(corsOptions))
 
 // // database connection
 // mongoose
