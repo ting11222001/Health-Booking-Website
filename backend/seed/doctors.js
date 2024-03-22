@@ -47,8 +47,8 @@ export const doctors = [
       }
     ],
     reviews: [],
-    averageRating: 4.5,
-    totalRating: 272,
+    averageRating: 0,
+    totalRating: 0,
     isApproved: "approved",
     appointments: [],
     blogs: [],
@@ -95,8 +95,8 @@ export const doctors = [
       }
     ],
     reviews: [],
-    averageRating: 4.5,
-    totalRating: 272,
+    averageRating: 0,
+    totalRating: 0,
     isApproved: "approved",
     appointments: [],
     blogs: [],

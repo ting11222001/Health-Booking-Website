@@ -25,9 +25,10 @@ const Blog = () => {
   return (
     <>
       {/* === banner === */}
-      <section className="bg-gradient-to-r from-emerald-50 to-indigo-200">
+      <section className="hero__section pt-[60px]">
         <div className="container text-center">
           <h2 className="heading">Find an Article</h2>
+          <p className="text__para">Dive into our library of educational content curated by our team of mental health professionals.</p>
           <div className="max-w-[570px] mt-[30px] mx-auto bg-[#0066ff2c] rounded-md flex items-center justify-between">
             <input
               type="search"
