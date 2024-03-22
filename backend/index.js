@@ -21,10 +21,6 @@ dotenv.config()
 const app = express()
 const port = process.env.PORT || 8000
 
-const corsOptions = {
-  origin: true,
-}
-
 app.get('/', (req, res) => {
   res.send("Api is working")
 })
@@ -35,7 +31,13 @@ mongoose.set('strictQuery', false)
 // middleware
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors(corsOptions))
+// Enable CORS for all origins and set the necessary headers
+app.use(cors({
+  origin: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}))
 app.use('/api/v1/auth', authRoute) // e.g. domain/api/v1/auth/register
 app.use('/api/v1/users', userRoute) // e.g. domain/api/v1/users/
 app.use('/api/v1/doctors', doctorRoute) // e.g. domain/api/v1/doctors/
@@ -44,8 +46,6 @@ app.use('/api/v1/bookings', bookingRoute) // e.g. domain/api/v1/bookings/
 app.use('/api/v1/blogs', blogRoute) // e.g. domain/api/v1/blogs/
 app.use('/api/v1/feedbacks', feedbackRoute) // e.g. domain/api/v1/feedbacks/
 
-// Handle CORS preflight requests explicitly
-app.options('*', cors(corsOptions))
 
 // // database connection
 // mongoose
