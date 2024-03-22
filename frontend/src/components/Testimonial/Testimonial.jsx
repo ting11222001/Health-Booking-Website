@@ -2,7 +2,7 @@ import { Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/pagination"
-import patient4 from "../../assets/images/patient-4.png"
+import patient4 from "../../assets/images/patient-temp.png"
 import { HiStar } from "react-icons/hi"
 
 const Testimonial = () => {

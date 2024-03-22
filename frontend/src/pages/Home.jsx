@@ -27,11 +27,16 @@ const Home = () => {
             <div>
               <div className="lg:w-[570px]">
                 <h1 className="text-[36px] leading-[46px] text-headingColor font-[800] md:text-[60px] md:leading-[70px]">
-                  We help patients live a healthy, longer life.
+                  Empower Yourself with Affordable Mental Health Support
                 </h1>
-                <p className="text__para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, reiciendis facere saepe repellendus unde tempore deserunt impedit, nesciunt necessitatibus voluptate qui dolore dolor eos consequuntur, incidunt eaque neque odit nemo.</p>
+                <p className="text__para">At <span className="font-bold">Thriveful</span>, we believe everyone deserves access to quality mental health care.</p>
 
-                <button className="btn">Request an Appointment</button>
+                <button className="btn">
+                  <Link
+                    to={`/doctors`}>
+                    Request an Appointment
+                  </Link>
+                </button>
               </div>
 
               {/* === hero counter === */}
@@ -76,9 +81,9 @@ const Home = () => {
         <div className="container">
           <div className="lg:w-[470px] mx-auto">
             <h2 className="heading text-center">
-              Providing the next medical services
+              Discover Affordable Online Counseling
             </h2>
-            <p className="text__para text-center">World-class care for everyone. Our health system offers unmatched, expert health care.</p>
+            <p className="text__para text-center">Take the first step towards better mental health with our accessible online counseling services.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-[30px] mt-[30px] lg:mt-[50px]">
@@ -89,7 +94,7 @@ const Home = () => {
 
               <div className="mt-[30px]">
                 <h2 className="text-[26px] leading-9 text-headingColor font-[700] text-center">Find a Doctor</h2>
-                <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">World-class care for everyone. Our health system offers unmatched, expert health care.</p>
+                <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">Our licensed therapists offer personalized treatment plans to support your journey to wellness.</p>
 
                 <Link
                   to="/doctors"
@@ -105,11 +110,11 @@ const Home = () => {
               </div>
 
               <div className="mt-[30px]">
-                <h2 className="text-[26px] leading-9 text-headingColor font-[700] text-center">Find a Location</h2>
-                <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">World-class care for everyone. Our health system offers unmatched, expert health care.</p>
+                <h2 className="text-[26px] leading-9 text-headingColor font-[700] text-center">Find an article</h2>
+                <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">Dive into our library of educational content curated by our team of mental health professionals.</p>
 
                 <Link
-                  to="/doctors"
+                  to="/blog"
                   className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none">
                   <BiRightArrowAlt className="group-hover:text-white w-6 h-5" />
                 </Link>
@@ -122,11 +127,11 @@ const Home = () => {
               </div>
 
               <div className="mt-[30px]">
-                <h2 className="text-[26px] leading-9 text-headingColor font-[700] text-center">Book an Appointment</h2>
-                <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">World-class care for everyone. Our health system offers unmatched, expert health care.</p>
+                <h2 className="text-[26px] leading-9 text-headingColor font-[700] text-center">Contact us</h2>
+                <p className="text-[16px] leading-7 text-textColor font-[400] mt-4 text-center">Whether &apos;re a user with ideas or a mental health professional looking to collaborate, we&apos;re here for you.</p>
 
                 <Link
-                  to="/doctors"
+                  to="/contact"
                   className="w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none">
                   <BiRightArrowAlt className="group-hover:text-white w-6 h-5" />
                 </Link>
@@ -145,7 +150,7 @@ const Home = () => {
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
             <h2 className="heading text-center">
-              Our medical services
+              Our mental health professionals provide these services
             </h2>
             <p className="text__para text-center">World-class care for everyone. Our health system offers unmatched, expert health care.</p>
           </div>
@@ -165,13 +170,13 @@ const Home = () => {
                   1. Schedule the appointment directly.
                 </li>
                 <li className="text__para">
-                  2. Search for your physician here, and contact their office.
+                  2. Search for your therapist here, and contact their office.
                 </li>
                 <li className="text__para">
-                  3. View our physiicans who are accepting new patients, use the online scheduling tool to select an appointment time.
+                  3. View our therapists who are accepting new patients, use the online scheduling tool to select an appointment time.
                 </li>
               </ul>
-              <Link to="/">
+              <Link to="/doctors">
                 <button className="btn">Learn More</button>
               </Link>
             </div>
@@ -205,14 +210,13 @@ const Home = () => {
         </div>
       </section >
 
-      {/* === our great doctors === */}
+      {/* === our great therapists === */}
       <section>
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
-            <h2 className="heading text-center">Our Great Doctors</h2>
+            <h2 className="heading text-center">Our Great Therapists</h2>
             <p className="text__para text-center">
-              World-class care for everyone. Our health system offers unmatched,
-              expert health care.
+              We&apos;re ready to help.
             </p>
           </div>
 
@@ -225,12 +229,12 @@ const Home = () => {
         <div className="container">
           <div className="flex justify-between gap-[50px] lg:gap-0">
             <div className="w-1/2 hidden md:block">
-              <img src={faqImg} alt="" className="w-3/4 rounded-lg" />
+              <img src={faqImg} alt="" className="w-[500px] rounded-lg" />
             </div>
 
-            <div className="w-full md:w-1/2">
+            <div className="w-full md:w-3/4">
               <h2 className="heading">
-                Most questions from our beloved patients
+                Frequently asked questions
               </h2>
               <FaqList />
             </div>

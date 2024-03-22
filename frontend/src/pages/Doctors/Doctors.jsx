@@ -26,22 +26,25 @@ const Doctors = () => {
   return (
     <>
       {/* === banner === */}
-      <section className="bg-[#fff9ea]">
-        <div className="container text-center">
-          <h2 className="heading">Find a Doctor</h2>
-          <div className="max-w-[570px] mt-[30px] mx-auto bg-[#0066ff2c] rounded-md flex items-center justify-between">
-            <input
-              type="search"
-              className="py-4 pl-4 pr-2 bg-transparent w-full focus:outline-none cursor-pointer placeholder:text-textColor"
-              placeholder="Search doctor by name or specialization"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <button
-              onClick={handleSearch}
-              className="btn mt-0 rounded-[0px] rounded-r-md">
-              Search
-            </button>
+      <section className="hero__section pt-[60px]">
+        <div className="container">
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="heading">Find a Doctor</h2>
+            <p className="text__para">At <span className="font-bold">Thriveful</span>, we believe everyone deserves access to quality mental health care.</p>
+            <div className="max-w-[570px] mt-[30px] mx-auto bg-[#0066ff2c] rounded-md flex items-center justify-between">
+              <input
+                type="search"
+                className="py-4 pl-4 pr-2 bg-transparent w-full focus:outline-none cursor-pointer placeholder:text-textColor"
+                placeholder="Search doctor by name or specialization"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <button
+                onClick={handleSearch}
+                className="btn mt-0 rounded-[0px] rounded-r-md">
+                Search
+              </button>
+            </div>
           </div>
         </div>
       </section>

@@ -71,8 +71,8 @@ const Header = () => {
       <div className="container">
         <div className="flex items-center justify-between">
           {/* === logo === */}
-          <div>
-            <img src={logo} alt="" />
+          <div className="w-32 h-32">
+            <img src={logo} alt="" className="w-full rounded-lg" />
           </div>
 
           {/* === menu === */}

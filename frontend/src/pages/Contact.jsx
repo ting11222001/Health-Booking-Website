@@ -49,8 +49,7 @@ const Contact = () => {
       <div className="px-4 mx-auto max-w-screen-md">
         <h2 className="heading text-center">Contact us</h2>
         <p className="mb-8 lg:mb-16 font-light text-center text__para">
-          Got a technical issue? Want to send feedback about a beta feature?
-          Let us know!
+          Whether you&apos;re a user with ideas or a mental health professional looking to collaborate, we&apos;re here for you. And if you&apos;d like to donate to support the website, let us know!
         </p>
         <form action="#" className="space-y-8">
           <div>
