@@ -44,7 +44,7 @@ const DoctorDetails = () => {
               {/* === Doctor section === */}
               <div className="flex items-center gap-5">
                 <figure className="max-w-[200px] max-h-[200px]">
-                  <img src={photo} alt="" className="w-full" />
+                  <img src={photo} alt="" className="w-full rounded-lg" />
                 </figure>
 
                 <div>
