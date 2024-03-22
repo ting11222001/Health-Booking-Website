@@ -18,12 +18,15 @@ const About = () => {
           {/* === about content === */}
           <div className="w-full lg:w-1/2 xl:w-[670px] order-2">
             <h2 className="heading">Proud to be one of the nations best</h2>
-            <p className="text__para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum obcaecati neque reiciendis distinctio eius, corrupti quaerat labore cupiditate temporibus quam saepe, consequatur expedita ut numquam? Deserunt, fugit sed? Voluptates, ducimus.</p>
+            <p className="text__para">Therapy doesn&apos;t have to break the bank. With our low-cost online counseling services, you can access professional support without draining your wallet. </p>
             <p className="text__para mt-[30px]">
-              Our best is something we strive for each day, caring for our patients-not looking back at what we accomplished but towards what we can do tomorow. Providing the best.
+              Start your journey to better mental health today. Our team of licensed professionals is dedicated to providing affordable online counseling services tailored to your needs.
+            </p>
+            <p className="text__para mt-[30px]">
+              Moreover, knowledge is power when it comes to improving your well-being. Explore our website for educational content written by our team of experts.
             </p>
 
-            <Link to="/">
+            <Link to="/blog">
               <button className="btn">Learn More</button>
             </Link>
           </div>

@@ -28,15 +28,11 @@ const quickLinks01 = [
     display: 'Home'
   },
   {
-    path: '/',
+    path: '/home',
     display: 'About Us'
   },
   {
-    path: '/services',
-    display: 'Services'
-  },
-  {
-    path: '/',
+    path: '/blog',
     display: 'Blog'
   }
 ]
@@ -47,26 +43,14 @@ const quickLinks02 = [
     display: 'Find a Doctor'
   },
   {
-    path: '/',
-    display: 'Request an Appointment'
+    path: '/blog',
+    display: 'Read an Article'
   },
-  {
-    path: '/',
-    display: 'Find a Location'
-  },
-  {
-    path: '/',
-    display: 'Get an Opinion'
-  }
 ]
 
 const quickLinks03 = [
   {
-    path: 'https://www.google.com/',
-    display: 'Donate'
-  },
-  {
-    path: 'https://www.google.com/',
+    path: '/contact',
     display: 'Contact us'
   },
 ]
@@ -79,7 +63,7 @@ const Footer = () => {
       <div className="container">
         <div className="flex justify-between flex-col md:flex-row flex-wrap gap-[30px]">
           <div>
-            <img src={logo} alt="" />
+            <img src={logo} alt="" className="w-56 h-56" />
             <p className="text-[16px] leading-7 font-[400] text-textColor">Copyright @ {year} developed by Li. All rights reserved.</p>
 
             <div className="flex items-center gap-3 mt-4">
