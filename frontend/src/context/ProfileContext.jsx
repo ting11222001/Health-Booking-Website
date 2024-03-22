@@ -13,6 +13,10 @@ const profileReducer = (state, action) => {
       return {
         profile: action.payload.profile
       }
+    case 'PROFILE_LOGOUT':
+      return {
+        profile: null
+      }
 
     default:
       return state
