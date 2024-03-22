@@ -84,3 +84,9 @@ Restrict API route access based on the user roles:
 
 ### Patients specific
 - Only "patient" can create a review for the doctors.
+
+### Stripe
+- test card's card information:
+```bash
+4242 4242 4242 4242
+```
