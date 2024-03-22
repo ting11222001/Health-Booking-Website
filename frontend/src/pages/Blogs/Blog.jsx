@@ -25,7 +25,7 @@ const Blog = () => {
   return (
     <>
       {/* === banner === */}
-      <section className="bg-[#fff9ea]">
+      <section className="bg-gradient-to-r from-emerald-50 to-indigo-200">
         <div className="container text-center">
           <h2 className="heading">Find an Article</h2>
           <div className="max-w-[570px] mt-[30px] mx-auto bg-[#0066ff2c] rounded-md flex items-center justify-between">
