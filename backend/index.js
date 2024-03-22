@@ -32,9 +32,9 @@ mongoose.set('strictQuery', false)
 app.use(express.json())
 app.use(cookieParser())
 // Enable CORS for all origins
-app.use(cors({
-  origin: true
-}))
+const cors = require('cors');
+// Allow all origins
+app.use(cors());
 app.use('/api/v1/auth', authRoute) // e.g. domain/api/v1/auth/register
 app.use('/api/v1/users', userRoute) // e.g. domain/api/v1/users/
 app.use('/api/v1/doctors', doctorRoute) // e.g. domain/api/v1/doctors/
