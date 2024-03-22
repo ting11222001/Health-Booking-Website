@@ -28,7 +28,9 @@ const Header = () => {
   const headerRef = useRef(null)
   const menuRef = useRef(null)
   // access the global state of auth
-  const { user, role, token } = useContext(AuthContext)
+  const { user, role, token, dispatch } = useContext(AuthContext)
+  // access the global state of profile
+  const { profile, dispatch: dispatchProfile } = useContext(ProfileContext)
 
   const handleStickyHeader = () => {
     window.addEventListener('scroll', () => {
@@ -48,15 +50,16 @@ const Header = () => {
 
   const toggleMenu = () => menuRef.current.classList.toggle('show__menu')
 
-  const { dispatch } = useContext(AuthContext)
-
-  const { profile } = useContext(ProfileContext)
 
   const handleLogOut = () => {
     localStorage.removeItem('user')
 
     dispatch({
       type: "LOGOUT",
+    })
+
+    dispatchProfile({
+      type: "PROFILE_LOGOUT",
     })
   }
 
@@ -105,7 +108,7 @@ const Header = () => {
                       to={`${role === "doctor" ? "/doctors/profile/me" : "/users/profile/me"}`}
                     >
                       <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
-                        <img src={profile?.photo} className="w-full rounded-full" alt="" />
+                        <img src={profile ? profile.photo : user.photo} className="w-full rounded-full" alt="" />
                       </figure>
                     </Link>
                   </div>
