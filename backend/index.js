@@ -45,36 +45,36 @@ app.use('/api/v1/blogs', blogRoute) // e.g. domain/api/v1/blogs/
 app.use('/api/v1/feedbacks', feedbackRoute) // e.g. domain/api/v1/feedbacks/
 
 
-// database connection
-mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => app.listen(port, () => console.log("Server is running on port: " + port)))
-  .then(() => {
-    // Drop all collections
-    try {
-      const collections = mongoose.connection.collections;
-
-      for (const key in collections) {
-        collections[key].drop();
-        console.log(`Collection ${key} dropped.`);
-      }
-
-      console.log("All collections dropped successfully!");
-    } catch (error) {
-      console.error("Error dropping collections:", error);
-    }
-  })
-  .then(() => {
-    // seed the database
-    Doctor.insertMany(doctors)
-    console.log("Seeded Doctors...")
-    User.insertMany(users)
-    console.log("Seeded Users...")
-  })
-  .catch((error) => console.log(`${error}: connection failed`))
-
-// // database connection (no drop collections and seed data)
+// // database connection
 // mongoose
 //   .connect(process.env.MONGO_URL)
 //   .then(() => app.listen(port, () => console.log("Server is running on port: " + port)))
+//   .then(() => {
+//     // Drop all collections
+//     try {
+//       const collections = mongoose.connection.collections;
+
+//       for (const key in collections) {
+//         collections[key].drop();
+//         console.log(`Collection ${key} dropped.`);
+//       }
+
+//       console.log("All collections dropped successfully!");
+//     } catch (error) {
+//       console.error("Error dropping collections:", error);
+//     }
+//   })
+//   .then(() => {
+//     // seed the database
+//     Doctor.insertMany(doctors)
+//     console.log("Seeded Doctors...")
+//     User.insertMany(users)
+//     console.log("Seeded Users...")
+//   })
 //   .catch((error) => console.log(`${error}: connection failed`))
+
+// database connection (no drop collections and seed data)
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => app.listen(port, () => console.log("Server is running on port: " + port)))
+  .catch((error) => console.log(`${error}: connection failed`))
