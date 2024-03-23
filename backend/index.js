@@ -1,5 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
+import helmet from "helmet"
+import morgan from "morgan"
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -33,6 +35,11 @@ app.use(express.json())
 app.use(cookieParser())
 // Enable CORS for all origins
 app.use(cors())
+// Try adding these
+app.use(helmet())
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }))
+app.use(morgan("common"))
+
 app.use('/api/v1/auth', authRoute) // e.g. domain/api/v1/auth/register
 app.use('/api/v1/users', userRoute) // e.g. domain/api/v1/users/
 app.use('/api/v1/doctors', doctorRoute) // e.g. domain/api/v1/doctors/
