@@ -11,10 +11,10 @@ import bookingRoute from "./Routes/booking.js"
 import blogRoute from "./Routes/blog.js"
 import feedbackRoute from "./Routes/feedback.js"
 // For seed data
-import Doctor from "./Models/DoctorSchema.js"
-import { doctors } from "./seed/doctors.js"
-import User from "./Models/UserSchema.js"
-import { users } from "./seed/users.js"
+// import Doctor from "./Models/DoctorSchema.js"
+// import { doctors } from "./seed/doctors.js"
+// import User from "./Models/UserSchema.js"
+// import { users } from "./seed/users.js"
 
 dotenv.config()
 
