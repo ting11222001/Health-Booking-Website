@@ -32,9 +32,7 @@ mongoose.set('strictQuery', false)
 app.use(express.json())
 app.use(cookieParser())
 // Enable CORS for all origins
-app.use(cors({
-  origin: "*",
-}));
+app.use(cors())
 app.use('/api/v1/auth', authRoute) // e.g. domain/api/v1/auth/register
 app.use('/api/v1/users', userRoute) // e.g. domain/api/v1/users/
 app.use('/api/v1/doctors', doctorRoute) // e.g. domain/api/v1/doctors/
@@ -42,9 +40,6 @@ app.use('/api/v1/reviews', reviewRoute) // e.g. domain/api/v1/reviews/
 app.use('/api/v1/bookings', bookingRoute) // e.g. domain/api/v1/bookings/
 app.use('/api/v1/blogs', blogRoute) // e.g. domain/api/v1/blogs/
 app.use('/api/v1/feedbacks', feedbackRoute) // e.g. domain/api/v1/feedbacks/
-
-// Handle preflight requests (OPTIONS method)
-app.options("*", cors());
 
 // // database connection
 // mongoose
