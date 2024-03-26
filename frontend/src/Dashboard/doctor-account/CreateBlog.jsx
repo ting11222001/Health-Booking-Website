@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { IoInformationCircle } from "react-icons/io5";
 import { BASE_URL } from "../../config"
 import { toast } from "react-toastify"
+import { AuthContext } from "../../context/AuthContext"
 
 const CreateBlog = ({ doctorData }) => {
+  const { dispatch } = useContext(AuthContext)
 
   const [formData, setFormData] = useState({
     title: '',
@@ -36,6 +38,14 @@ const CreateBlog = ({ doctorData }) => {
       if (!res.ok) {
         throw new Error(result.message)
       }
+
+      // update the global state of auth
+      dispatch({
+        type: "DOCTOR_ADD_BLOG",
+        payload: {
+          blog: result.data
+        }
+      })
 
       toast.success(result.message)
     } catch (error) {
