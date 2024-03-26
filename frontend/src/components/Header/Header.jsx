@@ -3,7 +3,6 @@ import logo from "../../assets/images/logo.png"
 import { NavLink, Link } from "react-router-dom"
 import { BiMenu } from "react-icons/bi"
 import { AuthContext } from "../../context/AuthContext"
-import { ProfileContext } from "../../context/ProfileContext"
 
 const navLinks = [
   {
@@ -29,8 +28,6 @@ const Header = () => {
   const menuRef = useRef(null)
   // access the global state of auth
   const { user, role, token, dispatch } = useContext(AuthContext)
-  // access the global state of profile
-  const { profile, dispatch: dispatchProfile } = useContext(ProfileContext)
 
   const handleStickyHeader = () => {
     window.addEventListener('scroll', () => {
@@ -56,10 +53,6 @@ const Header = () => {
 
     dispatch({
       type: "LOGOUT",
-    })
-
-    dispatchProfile({
-      type: "PROFILE_LOGOUT",
     })
   }
 
@@ -108,7 +101,7 @@ const Header = () => {
                       to={`${role === "doctor" ? "/doctors/profile/me" : "/users/profile/me"}`}
                     >
                       <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
-                        <img src={profile ? profile.photo : user.photo} className="w-full rounded-full" alt="" />
+                        <img src={user?.photo} className="w-full rounded-full" alt="" />
                       </figure>
                     </Link>
                   </div>

@@ -6,12 +6,9 @@ import { BASE_URL } from "../../config"
 import { toast } from "react-toastify"
 import { AuthContext } from "../../context/AuthContext"
 import HashLoader from "react-spinners/HashLoader"
-import { ProfileContext } from "../../context/ProfileContext"
 
 const Profile = ({ doctorData }) => {
-  const { token } = useContext(AuthContext)
-
-  const { dispatch } = useContext(ProfileContext)
+  const { dispatch, token } = useContext(AuthContext)
 
   const [loading, setLoading] = useState(false)
 
@@ -185,7 +182,7 @@ const Profile = ({ doctorData }) => {
         throw new Error(result.message)
       }
 
-      // update the global state of profile
+      // update the global state of auth
       dispatch({
         type: "PROFILE_UPDATE",
         payload: {

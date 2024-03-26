@@ -6,13 +6,11 @@ import { BASE_URL } from "../../config"
 import { toast } from "react-toastify"
 import HashLoader from "react-spinners/HashLoader"
 import { AuthContext } from "../../context/AuthContext"
-import { ProfileContext } from "../../context/ProfileContext"
 
 const Profile = ({ user }) => {
   const [selectedFile, setSelectedFile] = useState(null)
   const [loading, setLoading] = useState(false)
-  const { token } = useContext(AuthContext)
-  const { dispatch } = useContext(ProfileContext)
+  const { token, dispatch } = useContext(AuthContext)
 
   const [formData, setFormData] = useState({
     name: '',
@@ -71,7 +69,7 @@ const Profile = ({ user }) => {
         throw new Error(result.message)
       }
 
-      // update the global state of profile
+      // update the global state of auth
       dispatch({
         type: "PROFILE_UPDATE",
         payload: {
