@@ -16,7 +16,8 @@ const useFetchData = (url) => {
         const res = await fetch(url, {
           headers: {
             Authorization: `Bearer ${token}`,
-          }
+          },
+          credentials: 'include'
         })
 
         const result = await res.json()
