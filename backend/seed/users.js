@@ -6,6 +6,7 @@ const hashPassword = await bcrypt.hash("123", salt)
 
 export const users = [
   {
+    _id: "6602d3d1155e8f469cffdde8",
     email: "mila@gmail.com",
     password: hashPassword,
     name: "Mila Osbourne",
@@ -17,6 +18,7 @@ export const users = [
     appointments: [],
   },
   {
+    _id: "6602d3d1155e8f469cffdde9",
     email: "emma@gmail.com",
     password: hashPassword,
     name: "Emma Smith",

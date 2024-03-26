@@ -17,6 +17,8 @@ import User from "../Models/UserSchema.js"
 import { users } from "../seed/users.js"
 import Blog from "../Models/BlogSchema.js"
 import { blogs } from "../seed/blogs.js"
+import Review from "../Models/ReviewSchema.js"
+import { reviews } from "../seed/reviews.js"
 
 dotenv.config()
 
@@ -45,38 +47,37 @@ app.use('/api/v1/feedbacks', feedbackRoute) // e.g. domain/api/v1/feedbacks/
 // Mongoose won't enforce strict schema validation for queries
 mongoose.set('strictQuery', false)
 
-// Database connection
-/*
-// Drop collections and Seed data
-mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => app.listen(port, () => console.log("Server is running on port: " + port)))
-  .then(() => {
-    // Drop all collections
-    try {
-      const collections = mongoose.connection.collections;
+// Database connection - Drop collections and Seed data
+// mongoose
+//   .connect(process.env.MONGO_URL)
+//   .then(() => app.listen(port, () => console.log("Server is running on port: " + port)))
+//   .then(() => {
+//     // Drop all collections
+//     try {
+//       const collections = mongoose.connection.collections;
 
-      for (const key in collections) {
-        collections[key].drop();
-        console.log(`Collection ${key} dropped.`);
-      }
+//       for (const key in collections) {
+//         collections[key].drop();
+//         console.log(`Collection ${key} dropped.`);
+//       }
 
-      console.log("All collections dropped successfully!");
-    } catch (error) {
-      console.error("Error dropping collections:", error);
-    }
-  })
-  .then(() => {
-    // seed the database
-    Doctor.insertMany(doctors)
-    console.log("Seeded Doctors...")
-    User.insertMany(users)
-    console.log("Seeded Users...")
-    Blog.insertMany(blogs)
-    console.log("Seeded Blogs...")
-  })
-  .catch((error) => console.log(`${error}: connection failed`))
-*/
+//       console.log("All collections dropped successfully!");
+//     } catch (error) {
+//       console.error("Error dropping collections:", error);
+//     }
+//   })
+//   .then(() => {
+//     // seed the database
+//     Doctor.insertMany(doctors)
+//     console.log("Seeded Doctors...")
+//     User.insertMany(users)
+//     console.log("Seeded Users...")
+//     Blog.insertMany(blogs)
+//     console.log("Seeded Blogs...")
+//     Review.insertMany(reviews)
+//     console.log("Seeded Reviews...")
+//   })
+//   .catch((error) => console.log(`${error}: connection failed`))
 
 // Database connection with no drop collections and seed data)
 mongoose
