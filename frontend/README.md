@@ -46,9 +46,9 @@ npm run dev
 card information: 4242 4242 4242 4242
 ```
 
-## .env
+## .env and .env.local are required
 
-### config.js > server_url
+In config.js, server_url are imported from the .env and .env.local files as below:
 
 ```bash
 Local:
