@@ -29,7 +29,11 @@ app.get('/', (req, res) => {
 })
 
 // Enable CORS for all origins
-app.use(cors())
+app.use(cors({
+  origin: 'https://health-booking-website-client-cicd.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true // If you're using cookies or authentication
+}));
 
 app.use(express.json())
 app.use(cookieParser())
