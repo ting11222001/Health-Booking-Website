@@ -15,6 +15,8 @@ import Doctor from "../Models/DoctorSchema.js"
 import { doctors } from "../seed/doctors.js"
 import User from "../Models/UserSchema.js"
 import { users } from "../seed/users.js"
+import Blog from "../Models/BlogSchema.js"
+import { blogs } from "../seed/blogs.js"
 
 dotenv.config()
 
@@ -70,6 +72,8 @@ mongoose
     console.log("Seeded Doctors...")
     User.insertMany(users)
     console.log("Seeded Users...")
+    Blog.insertMany(blogs)
+    console.log("Seeded Blogs...")
   })
   .catch((error) => console.log(`${error}: connection failed`))
 

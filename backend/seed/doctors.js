@@ -6,6 +6,7 @@ const hashPassword = await bcrypt.hash("1234", salt)
 
 export const doctors = [
   {
+    _id: "660247adb56a95c2c97fa68b",
     email: "anna@gmail.com",
     password: hashPassword,
     name: "Anna Howard",
@@ -51,9 +52,14 @@ export const doctors = [
     totalRating: 0,
     isApproved: "approved",
     appointments: [],
-    blogs: [],
+    blogs: [
+      "6602483a0d2a3caa5dabb802",
+      "6602486dd9dd3754be293fc3",
+      "660249e90d2a3caa5dabb80f",
+    ],
   },
   {
+    _id: "660247adb56a95c2c97fa68c",
     email: "john@gmail.com",
     password: hashPassword,
     name: "John Oxford",
@@ -99,6 +105,10 @@ export const doctors = [
     totalRating: 0,
     isApproved: "approved",
     appointments: [],
-    blogs: [],
+    blogs: [
+      "66024acc0d2a3caa5dabb81c",
+      "66024d63110e6ceadbca8b33",
+      "66024fb2d9dd3754be293fdc",
+    ],
   }
 ]
