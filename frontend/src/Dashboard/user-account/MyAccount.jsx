@@ -6,12 +6,10 @@ import useGetProfile from "../../hooks/useFetchData"
 import { BASE_URL } from "../../config"
 import Loading from "../../components/Loading/Loading"
 import Error from "../../components/Error/Error"
-import { ProfileContext } from "../../context/ProfileContext"
 
 const MyAccount = () => {
-  const { dispatch } = useContext(AuthContext)
+  const { dispatch, user } = useContext(AuthContext)
   const [tab, setTab] = useState('bookings')
-  const { dispatch: dispatchProfile, profile } = useContext(ProfileContext)
 
   const {
     data: userData,
@@ -22,14 +20,14 @@ const MyAccount = () => {
 
   useEffect(() => {
     if (userData) {
-      dispatchProfile({
+      dispatch({
         type: "PROFILE_UPDATE",
         payload: {
           profile: userData
         }
       });
     }
-  }, [userData, dispatchProfile]);
+  }, [userData, dispatch]);
 
   const handleLogOut = () => {
     localStorage.removeItem('user')
@@ -56,20 +54,20 @@ const MyAccount = () => {
               <div className="pb-[50px] px-[30px] rounded-md">
                 <div className="flex items-center justify-center">
                   <figure className="w-[100px] h-[100px] rounded-full border-2 border-solid border-primaryColor">
-                    <img src={profile?.photo} alt="" className="w-full h-full rounded-full" />
+                    <img src={user?.photo} alt="" className="w-full h-full rounded-full" />
                   </figure>
                 </div>
 
                 <div className="text-center mt-4">
                   <h3 className="text-[18px] leading-[30px] text-headingColor font-bold">
-                    {profile?.name}
+                    {user?.name}
                   </h3>
                   <p className="text-textColor text-[15px] leading-6 font-medium">
-                    {profile?.email}
+                    {user?.email}
                   </p>
                   <p className="text-textColor text-[15px] leading-6 font-medium">Blood Type:
                     <span className="ml-2 text-headingColor text-[22px] leading-8">
-                      {profile?.bloodType}
+                      {user?.bloodType}
                     </span>
                   </p>
                 </div>
@@ -105,7 +103,7 @@ const MyAccount = () => {
                   tab === "bookings" && <MyBookings />
                 }
                 {
-                  tab === "settings" && <Profile user={profile} />
+                  tab === "settings" && <Profile user={user} />
                 }
               </div>
             </div>

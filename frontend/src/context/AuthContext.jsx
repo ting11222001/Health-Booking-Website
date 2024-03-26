@@ -31,6 +31,12 @@ const authReducer = (state, action) => {
         role: action.payload.role
       }
 
+    case 'PROFILE_UPDATE':
+      return {
+        ...state,
+        user: action.payload.profile,
+      }
+
     case 'LOGOUT':
       return {
         user: null,
