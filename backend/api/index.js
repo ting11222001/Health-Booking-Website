@@ -46,7 +46,7 @@ app.use('/api/v1/feedbacks', feedbackRoute) // e.g. domain/api/v1/feedbacks/
 mongoose.set('strictQuery', false)
 
 // Database connection
-
+/*
 // Drop collections and Seed data
 mongoose
   .connect(process.env.MONGO_URL)
@@ -76,12 +76,10 @@ mongoose
     console.log("Seeded Blogs...")
   })
   .catch((error) => console.log(`${error}: connection failed`))
-
+*/
 
 // Database connection with no drop collections and seed data)
-/*
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => app.listen(port, () => console.log("Server is running on port: " + port)))
   .catch((error) => console.log(`${error}: connection failed`))
-*/
