@@ -100,5 +100,5 @@ Local:
 CLIENT_SITE_URL=http://localhost:5173
 
 Production: 
-CLIENT_SITE_URL=https://frontend-sigma-eight-75.vercel.app
+CLIENT_SITE_URL=https://health-booking-website-client.vercel.app
 ```

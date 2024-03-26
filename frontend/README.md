@@ -55,5 +55,5 @@ Local:
 VITE_BASE_URL=http://localhost:5000
 
 Production: 
-VITE_BASE_URL=https://backend-nu-puce.vercel.app
+VITE_BASE_URL=https://health-booking-website-server.vercel.app
 ```
