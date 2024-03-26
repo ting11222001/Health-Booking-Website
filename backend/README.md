@@ -82,11 +82,23 @@ Restrict API route access based on the user roles:
 - When a doctor is registered, his/her default "isApproved" field is "pending".
 - Doctor bio, specilization are not in the DoctorSchema yet.
 
+
 ### Patients specific
 - Only "patient" can create a review for the doctors.
+
 
 ### Stripe
 - test card's card information:
 ```bash
 4242 4242 4242 4242
+```
+
+### .env
+
+```bash
+Local:
+CLIENT_SITE_URL=http://localhost:5173
+
+Production: 
+CLIENT_SITE_URL=https://frontend-sigma-eight-75.vercel.app
 ```

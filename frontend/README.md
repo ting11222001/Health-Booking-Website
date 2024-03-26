@@ -45,3 +45,15 @@ npm run dev
 ```bash
 card information: 4242 4242 4242 4242
 ```
+
+## .env
+
+### config.js > server_url
+
+```bash
+Local:
+VITE_BASE_URL=http://localhost:5000
+
+Production: 
+VITE_BASE_URL=https://backend-nu-puce.vercel.app
+```
