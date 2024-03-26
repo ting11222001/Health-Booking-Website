@@ -102,3 +102,8 @@ CLIENT_SITE_URL=http://localhost:5173
 Production: 
 CLIENT_SITE_URL=https://health-booking-website-client.vercel.app
 ```
+
+### seed data
+
+- It's better to do database dropping and seeding in the local environment.
+- I commented all the related code in the index.js whenever pushing code.
