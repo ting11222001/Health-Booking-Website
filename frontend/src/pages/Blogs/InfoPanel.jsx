@@ -17,7 +17,7 @@ const InfoPanel = ({ doctor }) => {
         </p>
       </div>
 
-      <Link to={`/doctors/${doctor?._id}`}>
+      <Link to={`/doctors-details/${doctor?._id}`}>
         <button className="btn px-2 w-full rounded-md">
           Talk to Dr. {doctor?.name}
         </button>
