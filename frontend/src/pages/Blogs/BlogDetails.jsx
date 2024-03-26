@@ -6,7 +6,7 @@ import Error from "../../components/Error/Error"
 import { useParams } from "react-router-dom"
 import { formatDate } from "../../utils/formatDate"
 import BlogArticle from "./BlogArticle"
-import BlogDiscussion from "./BlogDiscussion"
+// import BlogDiscussion from "./BlogDiscussion"
 import InfoPanel from "./InfoPanel"
 import tempImg from "../../assets/images/hero-bg.png"
 
@@ -66,13 +66,13 @@ const BlogDetails = () => {
                   Article
                 </button>
 
-                <button
+                {/* <button
                   onClick={() => setTab('discussion')}
                   className={`${tab === 'feedback' && 'border-b border-solid border-primaryColor'} 
                 py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold`}
                 >
                   Discussion
-                </button>
+                </button> */}
               </div>
 
               {/* === Tab content section === */}
@@ -84,11 +84,11 @@ const BlogDetails = () => {
                     content={content}
                   />
                 }
-                {
+                {/* {
                   tab === "discussion" &&
                   <BlogDiscussion
                   />
-                }
+                } */}
               </div>
             </div>
 
