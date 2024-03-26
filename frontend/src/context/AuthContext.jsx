@@ -37,6 +37,20 @@ const authReducer = (state, action) => {
         user: action.payload.profile,
       }
 
+    case 'DOCTOR_ADD_BLOG':
+      // Ensure doctor exists and is an object before updating
+      if (state.user && typeof state.user === 'object') {
+        return {
+          ...state,
+          user: {
+            ...state.user,
+            blogs: [...state.user.blogs, action.payload.blog]
+          }
+        }
+      }
+      // if doctor doesn't exist or is not an object
+      return state
+
     case 'LOGOUT':
       return {
         user: null,

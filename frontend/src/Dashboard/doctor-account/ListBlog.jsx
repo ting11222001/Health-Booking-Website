@@ -2,6 +2,7 @@
 import { formatDate } from "../../utils/formatDate"
 
 const ListBlog = ({ doctorData }) => {
+  console.log("list blog: ", doctorData)
   return (
     <table className="w-full text-left text-sm text-gray-500">
       <thead className="text-xs text-gray-700 uppercase bg-gray-50">
@@ -30,9 +31,9 @@ const ListBlog = ({ doctorData }) => {
                 className="flex items-center px-6 py-4 text-gray-900 whitespapce-nowrap"
               >
                 <div className="pl-3">
-                  <div className="text-base font-semibold">
+                  {/* <div className="text-base font-semibold">
                     {item.title}
-                  </div>
+                  </div> */}
                   <div className="text-normal text-gray-500">
                     {item.title}
                   </div>

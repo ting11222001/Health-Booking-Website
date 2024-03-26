@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom"
 import { BiRightArrowAlt } from "react-icons/bi"
-import tempImg from "../../assets/images/icon01.png"
+import tempImg from "../../assets/images/hero-bg.png"
 
 const BlogCard = ({ blog }) => {
   const { title, content } = blog
