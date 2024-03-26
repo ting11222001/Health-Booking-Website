@@ -2,11 +2,12 @@
 
 import { useState, useContext } from "react";
 import { IoInformationCircle } from "react-icons/io5";
-import { BASE_URL } from "../../config"
 import { toast } from "react-toastify"
 import { AuthContext } from "../../context/AuthContext"
 
+
 const CreateBlog = ({ doctorData }) => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL
   const { dispatch } = useContext(AuthContext)
 
   const [formData, setFormData] = useState({

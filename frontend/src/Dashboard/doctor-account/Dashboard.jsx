@@ -1,7 +1,6 @@
 import Loader from "../../components/Loading/Loading"
 import Error from "../../components/Error/Error"
 import useGetProfile from "../../hooks/useFetchData"
-import { BASE_URL } from "../../config"
 import Tabs from "./Tabs"
 import { useContext, useEffect, useState } from "react"
 import { IoInformationCircle } from "react-icons/io5";
@@ -14,6 +13,7 @@ import ListBlog from "./ListBlog"
 import { AuthContext } from "../../context/AuthContext"
 
 const Dashboard = () => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL
   const [tab, setTab] = useState('overview')
 
   const {

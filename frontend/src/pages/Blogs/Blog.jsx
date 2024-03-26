@@ -1,11 +1,11 @@
 import BlogCard from "../../components/Blog/BlogCard"
-import { BASE_URL } from "../../config"
 import useFetchData from "../../hooks/useFetchData"
 import Loader from "../../components/Loading/Loading"
 import Error from "../../components/Error/Error"
 import { useEffect, useState } from "react"
 
 const Blog = () => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL
   const [query, setQuery] = useState('')
   const [debounceQuery, setDebounceQuery] = useState('')
 

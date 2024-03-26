@@ -1,9 +1,9 @@
 import { useState } from "react"
 import HashLoader from "react-spinners/HashLoader"
-import { BASE_URL } from "../config"
 import { toast } from "react-toastify"
 
 const Contact = () => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     name: '',

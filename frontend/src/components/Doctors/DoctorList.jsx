@@ -1,10 +1,11 @@
 import DoctorCard from './DoctorCard'
-import { BASE_URL } from "../../config"
 import useFetchData from "../../hooks/useFetchData"
 import Loader from "../../components/Loading/Loading"
 import Error from "../../components/Error/Error"
 
+
 const DoctorList = () => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL
   const { data: doctors, loading, error } = useFetchData(`${BASE_URL}/doctors`)
 
   return (

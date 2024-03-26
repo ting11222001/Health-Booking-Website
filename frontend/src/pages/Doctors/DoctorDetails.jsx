@@ -3,7 +3,6 @@ import starIcon from "../../assets/images/Star.png"
 import DoctorAbout from "./DoctorAbout"
 import Feedback from "./Feedback"
 import SidePanel from "./SidePanel"
-import { BASE_URL } from "../../config"
 import useFetchData from "../../hooks/useFetchData"
 import Loader from "../../components/Loading/Loading"
 import Error from "../../components/Error/Error"
@@ -11,6 +10,7 @@ import { useParams } from "react-router-dom"
 
 const DoctorDetails = () => {
   const [tab, setTab] = useState('about')
+  const BASE_URL = import.meta.env.VITE_BASE_URL
 
   const { id } = useParams()
   const { data: doctor, loading, error } = useFetchData(`${BASE_URL}/doctors/${id}`)

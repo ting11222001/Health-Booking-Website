@@ -1,10 +1,10 @@
 import useFetchData from "../../hooks/useFetchData"
-import { BASE_URL } from "../../config"
 import DoctorCard from "../../components/Doctors/DoctorCard"
 import Loading from "../../components/Loading/Loading"
 import Error from "../../components/Error/Error"
 
 const MyBookings = () => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL
   const {
     data: appointments,
     loading,

@@ -2,7 +2,6 @@
 import { useNavigate } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
 import uploadImageCloudinary from "../../utils/uploadCloudinary"
-import { BASE_URL } from "../../config"
 import { toast } from "react-toastify"
 import HashLoader from "react-spinners/HashLoader"
 import { AuthContext } from "../../context/AuthContext"
@@ -11,6 +10,7 @@ const Profile = ({ user }) => {
   const [selectedFile, setSelectedFile] = useState(null)
   const [loading, setLoading] = useState(false)
   const { token, dispatch } = useContext(AuthContext)
+  const BASE_URL = import.meta.env.VITE_BASE_URL
 
   const [formData, setFormData] = useState({
     name: '',

@@ -2,11 +2,11 @@ import signupImg from "../assets/images/signup.gif"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import uploadImageCloudinary from "../utils/uploadCloudinary"
-import { BASE_URL } from "../config"
 import { toast } from "react-toastify"
 import HashLoader from "react-spinners/HashLoader"
 
 const Signup = () => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL
   const [selectedFile, setSelectedFile] = useState(null)
   const [previewURL, setPreviewURL] = useState('')
   const [loading, setLoading] = useState(false)

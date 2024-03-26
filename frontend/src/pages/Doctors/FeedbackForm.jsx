@@ -1,13 +1,13 @@
 import { useState, useContext } from "react"
 import { AiFillStar } from "react-icons/ai"
 import { useParams } from "react-router-dom"
-import { BASE_URL } from "../../config"
 import { toast } from "react-toastify"
 import { AuthContext } from "../../context/AuthContext"
 import HashLoader from "react-spinners/HashLoader"
 
 
 const FeedbackForm = () => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL
   const [rating, setRating] = useState(0)
   const [hover, setHover] = useState(0)
   const [reviewText, setReviewText] = useState("")

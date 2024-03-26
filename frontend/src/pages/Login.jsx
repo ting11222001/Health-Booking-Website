@@ -1,11 +1,11 @@
 import { useState, useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { BASE_URL } from "../config"
 import { toast } from "react-toastify"
 import HashLoader from "react-spinners/HashLoader"
 import { AuthContext } from "../context/AuthContext"
 
 const Login = () => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL
 
   const [formData, setFormData] = useState({
     email: '',

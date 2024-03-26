@@ -1,6 +1,5 @@
 import DoctorCard from "../../components/Doctors/DoctorCard"
 import Testimonial from "../../components/Testimonial/Testimonial"
-import { BASE_URL } from "../../config"
 import useFetchData from "../../hooks/useFetchData"
 import Loader from "../../components/Loading/Loading"
 import Error from "../../components/Error/Error"
@@ -9,6 +8,7 @@ import { useEffect, useState } from "react"
 const Doctors = () => {
   const [query, setQuery] = useState('')
   const [debounceQuery, setDebounceQuery] = useState('')
+  const BASE_URL = import.meta.env.VITE_BASE_URL
   const { data: doctors, loading, error } = useFetchData(`${BASE_URL}/doctors?query=${debounceQuery}`)
 
   const handleSearch = () => {

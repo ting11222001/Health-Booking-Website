@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import convertTime from "../../utils/convertTime"
-import { BASE_URL } from "../../config"
 import { useContext } from "react"
 import { AuthContext } from "../../context/AuthContext"
 import { toast } from "react-toastify"
 
 const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
   const { token } = useContext(AuthContext)
+  const BASE_URL = import.meta.env.VITE_BASE_URL
 
   const bookingHandler = async () => {
     try {

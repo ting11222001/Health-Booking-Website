@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { BASE_URL } from "../../config"
 import useFetchData from "../../hooks/useFetchData"
 import Loader from "../../components/Loading/Loading"
 import Error from "../../components/Error/Error"
@@ -11,6 +10,7 @@ import InfoPanel from "./InfoPanel"
 import tempImg from "../../assets/images/hero-bg.png"
 
 const BlogDetails = () => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL
   const { id } = useParams()
   const { data: blog, loading, error } = useFetchData(`${BASE_URL}/blogs/${id}`)
   const [tab, setTab] = useState('article')

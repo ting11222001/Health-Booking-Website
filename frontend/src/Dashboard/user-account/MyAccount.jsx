@@ -3,13 +3,13 @@ import { AuthContext } from "../../context/AuthContext"
 import MyBookings from "./MyBookings"
 import Profile from "./Profile"
 import useGetProfile from "../../hooks/useFetchData"
-import { BASE_URL } from "../../config"
 import Loading from "../../components/Loading/Loading"
 import Error from "../../components/Error/Error"
 
 const MyAccount = () => {
   const { dispatch, user } = useContext(AuthContext)
   const [tab, setTab] = useState('bookings')
+  const BASE_URL = import.meta.env.VITE_BASE_URL
 
   const {
     data: userData,

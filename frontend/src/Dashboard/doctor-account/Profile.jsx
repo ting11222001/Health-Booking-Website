@@ -2,12 +2,13 @@
 import { useState, useContext, useEffect } from "react"
 import { AiOutlineDelete } from "react-icons/ai"
 import uploadImageCloudinary from "../../utils/uploadCloudinary"
-import { BASE_URL } from "../../config"
 import { toast } from "react-toastify"
 import { AuthContext } from "../../context/AuthContext"
 import HashLoader from "react-spinners/HashLoader"
 
 const Profile = ({ doctorData }) => {
+  const BASE_URL = import.meta.env.VITE_BASE_URL
+
   const { dispatch, token } = useContext(AuthContext)
 
   const [loading, setLoading] = useState(false)
