@@ -47,9 +47,12 @@ export const doctors = [
         day: "tuesday"
       }
     ],
-    reviews: [],
-    averageRating: 0,
-    totalRating: 0,
+    reviews: [
+      "67035797b5fda9ee74326519",
+      "67044187b5fda9ee74326519"
+    ],
+    averageRating: 5,
+    totalRating: 2,
     isApproved: "approved",
     appointments: [],
     blogs: [
@@ -100,9 +103,12 @@ export const doctors = [
         day: "tuesday"
       }
     ],
-    reviews: [],
-    averageRating: 0,
-    totalRating: 0,
+    reviews: [
+      "66035787b5fda9ee74324412",
+      "66035797b5fda9ee74326517"
+    ],
+    averageRating: 2,
+    totalRating: 2,
     isApproved: "approved",
     appointments: [],
     blogs: [

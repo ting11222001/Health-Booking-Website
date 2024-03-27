@@ -60,7 +60,7 @@ const DoctorDetails = () => {
                     <span className="flex items-center gap-[6px] text-[14px] leading-5
                   lg:text-[16px] lg:leading-7 font-semibold text-headingColor">
                       <img src={starIcon} alt="" />
-                      {averageRating}
+                      {averageRating?.toFixed(1)}
                     </span>
                     <span className="text-[14px] leading-5
                   lg:text-[16px] lg:leading-7 font-[400] text-textColor">
@@ -89,7 +89,7 @@ const DoctorDetails = () => {
                   className={`${tab === 'feedback' && 'border-b border-solid border-primaryColor'} 
                 py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold`}
                 >
-                  Feedback
+                  Reviews
                 </button>
               </div>
 
