@@ -48,8 +48,14 @@ card information: 4242 4242 4242 4242
 
 ## .env and .env.local are required
 
-In config.js, server_url are imported from the .env and .env.local files as below:
+Parameters include:
+```bash
+VITE_CLOUD_NAME=
+VITE_UPLOAD_PRESET=
+VITE_BASE_URL=
+```
 
+VITE_BASE_URL in the .env and .env.local:
 ```bash
 Local:
 VITE_BASE_URL=http://localhost:5000
@@ -57,3 +63,4 @@ VITE_BASE_URL=http://localhost:5000
 Production: 
 VITE_BASE_URL=https://health-booking-website-server.vercel.app
 ```
+

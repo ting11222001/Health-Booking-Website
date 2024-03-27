@@ -118,6 +118,8 @@ doctors:
 
 ## Acknowledgements
 
-The design was inspired by [Coding With Muhib](https://www.youtube.com/watch?v=K4_J3ShsUOY&t=22s&ab_channel=CodingWithMuhib).
+A part of the UI design was inspired by [Coding With Muhib](https://www.youtube.com/watch?v=K4_J3ShsUOY&t=22s&ab_channel=CodingWithMuhib).
+
+The rest API settings and media assets were created by me ✨
 
 Feel free to reach out with any questions or feedback!
