@@ -45,12 +45,12 @@ admin:
 user (i.e. patient):
 ```bash
 {
-    "email": "user2@gmail.com",
-    "password": "1234"
+    "email": "mila@gmail.com",
+    "password": "123"
 }
-or
+
 {
-    "email": "user@gmail.com",
+    "email": "emma@gmail.com",
     "password": "123"
 }
 ```
@@ -58,8 +58,13 @@ or
 doctor:
 ```bash
 {
-    "email": "qweqwe@gmail.com", or "doctor@gmail.com"
-    "password": "123"
+    "email": "anna@gmail.com",
+    "password": "1234"
+}
+
+{
+    "email": "john@gmail.com",
+    "password": "1234"
 }
 ```
 
@@ -73,18 +78,16 @@ paste the token in another api > Authorization > Type: Bearer Token > Token fiel
 Restrict API route access based on the user roles:
 - Only "admin" can get all the users (i.e. "patients"/"doctors") data.
 - Only "patient" or "doctor" themselves can get/update/delete their own data.
-- Only "patient" can create reviews for the doctors.
 - Anyone can submit a feedback in the Contact Us page.
 
 
 ### Doctors specific
 - Only "approved" doctors will be shown by getAllDoctors API.
 - When a doctor is registered, his/her default "isApproved" field is "pending".
-- Doctor bio, specilization are not in the DoctorSchema yet.
 
 
 ### Patients specific
-- Only "patient" can create a review for the doctors.
+- Only "patient" can create reviews for the doctors.
 
 
 ### Stripe
