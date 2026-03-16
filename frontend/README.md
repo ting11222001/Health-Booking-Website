@@ -2,36 +2,31 @@
 
 Built with React + Vite.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## First-time project creation (reference only — already done)
 
-Currently, two official plugins are available:
+These commands are here for documentation purposes. You do **not** need to run them
+to use this project — just run `npm install` instead (see below).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Installation
-
-Create Vite and install libraries:
 ```bash
+# Create a Vite + React project
 npm create vite@latest ./
+
+# Install runtime libraries
 npm install react-router-dom react-icons react-spinners react-toastify swiper
 npm i stripe
 ```
 
-Install tailwind css:
-https://tailwindcss.com/docs/guides/vite
+Install Tailwind CSS (followed the [official Vite guide](https://tailwindcss.com/docs/guides/vite)):
 
 ```bash
-# after created a vite + react project
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
-
-# ... the rest followed the documentaton
 ```
 
-## Installation (when first time pull the project down)
+## Installation (when pulling the project for the first time)
 
 ```bash
+cd frontend/
 npm install
 ```
 
@@ -41,26 +36,14 @@ npm install
 npm run dev
 ```
 
-## Stripe for testing checkout
+Vite starts a dev server at **http://localhost:5173**.
+
+## Environment variables
+
+Copy the template and fill in your values:
+
 ```bash
-card information: 4242 4242 4242 4242
+cp .env.example .env
 ```
 
-## .env and .env.local are required
-
-Parameters include:
-```bash
-VITE_CLOUD_NAME=
-VITE_UPLOAD_PRESET=
-VITE_BASE_URL=
-```
-
-VITE_BASE_URL in the .env and .env.local:
-```bash
-Local:
-VITE_BASE_URL=http://localhost:5000
-
-Production: 
-VITE_BASE_URL=https://health-booking-website-server.vercel.app
-```
-
+See **`frontend/.env.example`** for what each variable does and where to find the values.

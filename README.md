@@ -37,19 +37,81 @@ cd backend/
 npm install
 ```
 
-## Usage for Local Development
+## Running Locally
 
-After the installation, run the frontend project using the following command:
+You need **three things running** at the same time: MongoDB (Docker), the backend, and the frontend.
+
+### 1. Start MongoDB in Docker
+
+**First time only** — creates and starts the container. Make sure Docker Desktop is open,
+then run this from the **project root**:
 
 ```bash
+docker compose up -d
+```
+
+**From the second time onwards** — the container already exists, so you can either:
+- Click the **▶ play button** next to `thriveful-mongo` in Docker Desktop, or
+- Run `docker compose up -d` again (safe to re-run, does the same thing)
+
+Data is persisted in a Docker volume so it survives restarts.
+To stop it: `docker compose down`.
+
+To connect with **MongoDB Compass** (GUI to inspect your data):
+```
+mongodb://root:example@localhost:27017/thriveful?authSource=admin
+```
+
+### 2. Set up environment variables
+
+```bash
+cp backend/.env.example  backend/.env
+cp frontend/.env.example frontend/.env
+```
+
+Fill in your real values. See each `.env.example` file for instructions on where
+to find each value (Cloudinary dashboard, Stripe dashboard, etc.).
+
+### 3. Install dependencies
+
+```bash
+cd backend && npm install
+cd ../frontend && npm install
+```
+
+### 4. Start the backend
+
+```bash
+cd backend
+npm run start-dev
+```
+
+Express server runs at **http://localhost:8000**.
+
+### 5. Start the frontend
+
+```bash
+cd frontend
 npm run dev
 ```
 
-After the installation, run the backend project using the following command:
+Vite dev server runs at **http://localhost:5173** — open this in your browser.
 
-```bash
-npm run start-dev
-```
+---
+
+## API Authorization
+
+Routes are protected based on three user roles: `admin`, `patient`, `doctor`.
+
+| Rule | Who it applies to |
+|------|------------------|
+| Get all users / doctors data | `admin` only |
+| Get / update / delete own profile | the user themselves (`patient` or `doctor`) |
+| Create a review for a doctor | `patient` only |
+| Submit a Contact Us feedback | anyone (no login required) |
+| Appear in the doctors listing | `doctor` with `isApproved: "approved"` only |
+
+When a doctor registers, their `isApproved` status defaults to `"pending"` until approved.
 
 ## Technologies
 

@@ -1,122 +1,66 @@
 # Backend
 
-Include step-by-step instructions on how to install and set up the backend project. This may include dependencies, environment setup, etc.
+Node.js + Express API server for Thriveful.
 
-## Installation
+For product features, API authorization rules, MongoDB setup, and test accounts,
+see the **[project root README](../README.md)**.
+
+## Installation (first-time project creation — reference only)
 
 ```bash
 npm i express mongodb mongoose cors jsonwebtoken cookie-parser dotenv bcryptjs nodemon
 npm i stripe
 ```
 
-## Installation (when first time pull the project down)
+## Installation (when pulling the project for the first time)
 
 ```bash
+cd backend/
 npm install
 ```
 
-## Run the Server
+## Run the server
 
 ```bash
-# For Development
+# Development (auto-restarts on file changes via nodemon)
 npm run start-dev
 
-# For Testing the Frontend
+# Production-style (no auto-restart)
 npm run start
 ```
 
-## Postman
+Server runs at **http://localhost:8000** (controlled by `PORT` in `backend/.env`).
 
-### Request
-To send a request, go to an api tab:
+## Environment variables
+
+Copy the template and fill in your values:
+
 ```bash
-Body > raw > JSON > give a JSON object with required fields.
+cp .env.example .env
 ```
 
-### Roles
-admin:
-```bash
-{
-    "email": "admin@gmail.com",
-    "password": "1234"
-}
+See **`backend/.env.example`** for what each variable does and where to find the values.
+
+## Testing API routes with Postman
+
+### Sending a request
+
+Go to an API tab in Postman:
+```
+Body → raw → JSON → provide a JSON object with the required fields
 ```
 
-user (i.e. patient):
-```bash
-{
-    "email": "mila@gmail.com",
-    "password": "123"
-}
+### Using a Bearer Token for authenticated routes
 
-{
-    "email": "emma@gmail.com",
-    "password": "123"
-}
+After logging in, copy the `token` value from the response, then in another request:
+```
+Authorization tab → Type: Bearer Token → paste token into the Token field
 ```
 
-doctor:
-```bash
-{
-    "email": "anna@gmail.com",
-    "password": "1234"
-}
+## Seed data
 
-{
-    "email": "john@gmail.com",
-    "password": "1234"
-}
-```
+Seed scripts are in `backend/seed/`. To populate a fresh local database:
 
-### Authentication
-After logged in, take the Bearer Token value from the "token" field:
-```bash
-paste the token in another api > Authorization > Type: Bearer Token > Token field.
-```
-
-### Authorization
-Restrict API route access based on the user roles:
-- Only "admin" can get all the users (i.e. "patients"/"doctors") data.
-- Only "patient" or "doctor" themselves can get/update/delete their own data.
-- Anyone can submit a feedback in the Contact Us page.
-
-
-### Doctors specific
-- Only "approved" doctors will be shown by getAllDoctors API.
-- When a doctor is registered, his/her default "isApproved" field is "pending".
-
-
-### Patients specific
-- Only "patient" can create reviews for the doctors.
-
-
-### Stripe
-- test card's card information:
-```bash
-4242 4242 4242 4242
-```
-
-### .env
-
-Parameters include:
-```bash
-PORT=
-MONGO_URL=
-JWT_SECRET_KEY=
-STRIPE_SECRET_KEY=
-CLIENT_SITE_URL=
-```
-
-VITE_BASE_URL in the .env:
-```bash
-Local:
-CLIENT_SITE_URL=http://localhost:5173
-
-Production: 
-CLIENT_SITE_URL=https://health-booking-website-client.vercel.app
-```
-
-### Seed data
-
-- It's better to do database dropping and seeding in the local environment.
-- I commented all the related code in the index.js whenever pushing code.
+1. Uncomment the seed imports and calls at the bottom of `backend/api/index.js`
+2. Start the server once (`npm run start-dev`)
+3. Comment the seed lines out again before the next commit
