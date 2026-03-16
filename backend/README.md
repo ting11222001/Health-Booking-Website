@@ -19,13 +19,23 @@ cd backend/
 npm install
 ```
 
+## Seed data
+
+Seed scripts are in `backend/seed/seed.js`. To populate a fresh database:
+```
+npm run seed
+```
+
+Then, start the server once (`npm run start-dev`)
+
+
 ## Run the server
 
 ```bash
-# Development (auto-restarts on file changes via nodemon)
+# Development (this script uses nodemon in backend/package.json, which watches the files and auto-restarts the server on every save)
 npm run start-dev
 
-# Production-style (no auto-restart)
+# Production-style (this script used plain node, no file watching, no auto-restart)
 npm run start
 ```
 
@@ -56,11 +66,3 @@ After logging in, copy the `token` value from the response, then in another requ
 ```
 Authorization tab → Type: Bearer Token → paste token into the Token field
 ```
-
-## Seed data
-
-Seed scripts are in `backend/seed/`. To populate a fresh local database:
-
-1. Uncomment the seed imports and calls at the bottom of `backend/api/index.js`
-2. Start the server once (`npm run start-dev`)
-3. Comment the seed lines out again before the next commit
