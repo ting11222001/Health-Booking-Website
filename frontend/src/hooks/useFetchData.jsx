@@ -34,7 +34,7 @@ const useFetchData = (url) => {
     }
 
     fetchData()
-  }, [url])
+  }, [url, token])
 
 
   return {
