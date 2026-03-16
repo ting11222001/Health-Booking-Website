@@ -8,7 +8,7 @@ import { formatDate } from "../../utils/formatDate"
 import BlogArticle from "./BlogArticle"
 // import BlogDiscussion from "./BlogDiscussion"
 import InfoPanel from "./InfoPanel"
-import tempImg from "../../assets/images/hero-bg.png"
+import tempImg from "../../assets/images/hero-bg.webp"
 
 const BlogDetails = () => {
   const { id } = useParams()

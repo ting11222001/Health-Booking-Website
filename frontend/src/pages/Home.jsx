@@ -1,18 +1,18 @@
-import heroImg01 from "../assets/images/hero-img01.png"
-import heroImg02 from "../assets/images/hero-img02.png"
-import heroImg03 from "../assets/images/hero-img03.png"
-import icon01 from "../assets/images/icon01.png"
-import icon02 from "../assets/images/icon02.png"
-import icon03 from "../assets/images/icon03.png"
+import heroImg01 from "../assets/images/hero-img01.webp"
+import heroImg02 from "../assets/images/hero-img02.webp"
+import heroImg03 from "../assets/images/hero-img03.webp"
+import icon01 from "../assets/images/icon01.webp"
+import icon02 from "../assets/images/icon02.webp"
+import icon03 from "../assets/images/icon03.webp"
 import { Link } from "react-router-dom"
 import { BiRightArrowAlt } from "react-icons/bi"
 import About from "../components/About/About"
 import ServiceList from "../components/Services/ServiceList"
-import featureImg from "../assets/images/feature-img.png"
+import featureImg from "../assets/images/feature-img.webp"
 import videoImg from "../assets/images/video-icon.png"
 import avatarIcon from "../assets/images/avatar-icon.png"
 import DoctorList from "../components/Doctors/DoctorList"
-import faqImg from "../assets/images/faq-img.png"
+import faqImg from "../assets/images/faq-img.webp"
 import FaqList from "../components/Faq/FaqList"
 import Testimonial from "../components/Testimonial/Testimonial"
 
@@ -65,11 +65,11 @@ const Home = () => {
             {/* === hero right === */}
             <div className="flex gap-[30px] justify-end">
               <div className="w-1/2">
-                <img className="object-contain rounded-lg" src={heroImg01} alt="" />
+                <img src={heroImg01} className="object-contain rounded-lg" alt="" />
               </div>
               <div className="w-1/2 mt-[30px]">
-                <img className="w-80 object-contain rounded-lg mb-[30px]" src={heroImg03} alt="" />
-                <img className="w-64 object-scale-down rounded-lg" src={heroImg02} alt="" />
+                <img src={heroImg03} className="w-80 object-contain rounded-lg mb-[30px]" alt="" />
+                <img src={heroImg02} className="w-64 object-scale-down rounded-lg" alt="" />
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-[30px] mt-[30px] lg:mt-[50px]">
             <div className="pt-[30px] px-5">
               <div className="flex items-center justify-center">
-                <img src={icon01} alt="" />
+                <img src={icon01} loading="lazy" alt="" />
               </div>
 
               <div className="mt-[30px]">
@@ -106,7 +106,7 @@ const Home = () => {
 
             <div className="pt-[30px] px-5">
               <div className="flex items-center justify-center">
-                <img src={icon02} alt="" />
+                <img src={icon02} loading="lazy" alt="" />
               </div>
 
               <div className="mt-[30px]">
@@ -123,7 +123,7 @@ const Home = () => {
 
             <div className="pt-[30px] px-5">
               <div className="flex items-center justify-center">
-                <img src={icon03} alt="" />
+                <img src={icon03} loading="lazy" alt="" />
               </div>
 
               <div className="mt-[30px]">
@@ -183,7 +183,7 @@ const Home = () => {
 
             {/* === feature img === */}
             <div className="relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0">
-              <img src={featureImg} className="w-3/4 rounded-lg" alt="" />
+              <img src={featureImg} loading="lazy" className="w-3/4 rounded-lg" alt="" />
 
               <div className="w-[150px] lg:w-[248px] bg-white absolute bottom-[50px] left-0 md:bottom-[100px] md:left-5 z-20 p-2 pb-3 lg:pt-4 lg:px-4 lg:pb-[26px] rounded-[10px]">
                 <div className="flex items-center justify-between">
@@ -192,7 +192,7 @@ const Home = () => {
                     <p className="text-[10px] leading-[10px] lg:text-[14px] lg:leading-5 text-textColor font-[400]">10:00AM</p>
                   </div>
                   <span className="w-5 h-5 lg:w-[34px] lg:h-[34px] flex items-center bg-yellowColor rounded py-1 px-[6px] lg:py-3 lg:px-[9px]">
-                    <img src={videoImg} alt="" />
+                    <img src={videoImg} loading="lazy" alt="" />
                   </span>
                 </div>
 
@@ -201,7 +201,7 @@ const Home = () => {
                 </div>
 
                 <div className="flex items-center gap-[6px] lg:gap-[10px] mt-2 lg:mt-[18px]">
-                  <img src={avatarIcon} alt="" />
+                  <img src={avatarIcon} loading="lazy"alt="" />
                   <h4 className="text-[10px] leading-3 lg:text-[16px] lg:leading-[22px] font-[700] text-headingColor">Wayne Collins</h4>
                 </div>
               </div>
@@ -229,7 +229,7 @@ const Home = () => {
         <div className="container">
           <div className="flex justify-between gap-[50px] lg:gap-0">
             <div className="w-1/2 hidden md:block">
-              <img src={faqImg} alt="" className="w-[500px] rounded-lg" />
+              <img src={faqImg} loading="lazy" alt="" className="w-[500px] rounded-lg" />
             </div>
 
             <div className="w-full md:w-3/4">

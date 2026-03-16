@@ -1,5 +1,5 @@
-import aboutImg from "../../assets/images/about.png"
-import aboutCardImg from "../../assets/images/about-card.png"
+import aboutImg from "../../assets/images/about.webp"
+import aboutCardImg from "../../assets/images/about-card.webp"
 import { Link } from "react-router-dom"
 
 const About = () => {
@@ -9,9 +9,9 @@ const About = () => {
         <div className="flex justify-between gap-[50px] lg:gap-[130px] xl:gap-0 flex-col lg:flex-row">
           {/* === about image === */}
           <div className="relative w-3/4 lg:w-1/2 xl:w-[770px] z-10 order-2 lg:order-1">
-            <img src={aboutImg} alt="" className="w-3/4 rounded-lg" />
+            <img src={aboutImg} loading="lazy" alt="" className="w-3/4 rounded-lg" />
             <div className="absolute z-20 bottom-4 w-[200px] md:w-[300px] right-[-30%] md:right-[-7%] lg:right-[12%]">
-              <img src={aboutCardImg} className="" alt="" />
+              <img src={aboutCardImg} loading="lazy" className="" alt="" />
             </div>
           </div>
 
