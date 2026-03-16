@@ -4,12 +4,42 @@ import Booking from "../Models/BookingSchema.js"
 export const updateDoctor = async (req, res) => {
   const id = req.params.id
 
+  /**
+   * white list the resquest body to avoid important fields to be overwritten by 
+   * malicious request body
+   */ 
+  const {
+    name,
+    phone,
+    photo,
+    ticketPrice,
+    gender,
+    specialization,
+    qualifications,
+    experiences,
+    bio,
+    about,
+    timeSlots
+  } = req.body
+
   try {
 
     const updateDoctor = await Doctor.findByIdAndUpdate(
       id,
       {
-        $set: req.body
+        $set: {
+          name,
+          phone,
+          photo,
+          ticketPrice,
+          gender,
+          specialization,
+          qualifications,
+          experiences,
+          bio,
+          about,
+          timeSlots
+        }
       },
       {
         new: true  // if true, return the modified document rather than the original
