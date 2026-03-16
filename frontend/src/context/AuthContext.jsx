@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { createContext, useReducer } from 'react'
 
 const initialState = {
-  user: localStorage.getItem('user') != undefined
+  user: localStorage.getItem('user') !== null  // localStorage returns null, not undefined
     ? JSON.parse(localStorage.getItem('user'))
     : null,
   role: JSON.parse(localStorage.getItem('role')) || null,
@@ -66,7 +66,7 @@ const authReducer = (state, action) => {
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState)
 
-  console.log("AuthContext state: ", state)
+  // console.log("AuthContext state: ", state) // For debugging only
 
   // Save the user logged in status in local storage so that the user
   // can stay logged in even when he refreshed the page before logged out.
