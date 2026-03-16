@@ -65,11 +65,26 @@ const Login = () => {
     }
   }
 
+  const demoAccounts = {
+    patient: {
+      email: "mila@gmail.com",
+      password: "123"
+    },
+    doctor: {
+      email: "anna@gmail.com",
+      password: "1234"
+    }
+  }
+
+  const fillDemoData = (demoRole) => {
+    setFormData(demoAccounts[demoRole])
+  }
+
   return (
     <section className="px-5 lg:px-0">
       <div className="w-full max-w-[570px] mx-auto rounded-lg shadow-md md:p-10">
         <h3 className="text-headingColor text-[22px] leading-9 font-bold mb-10">
-          Hello <span className="text-primaryColor">Welcome</span> Back 🎉
+          Hello! <span className="text-primaryColor">Welcome</span> Back 🎉
         </h3>
 
         <form onSubmit={submitHandler} className="py-4 md:py-0">
@@ -99,6 +114,23 @@ const Login = () => {
               placeholder:text-textColor cursor-pointer"
               required
             />
+          </div>
+
+          <div className="mb-4 flex gap-4">
+            <button
+              type="button"
+              onClick={() => fillDemoData('patient')}
+              className="flex-1 py-2 text-sm border border-primaryColor text-primaryColor rounded-lg hover:bg-primaryColor hover:text-white transition"
+            >
+              Demo Patient Login
+            </button>
+            <button
+              type="button"
+              onClick={() => fillDemoData('doctor')}
+              className="flex-1 py-2 text-sm border border-green-500 text-green-500 rounded-lg hover:bg-green-500 hover:text-white transition"
+            >
+              Demo Doctor Login
+            </button>
           </div>
 
           <div className="mt-5">
