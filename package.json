@@ -1,0 +1,23 @@
+{
+  "name": "thriveful-health-booking-website",
+  "version": "1.0.0",
+  "description": "Welcome to the Thriveful Mental Health Website repository!",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ting11222001/Thriveful.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ting11222001/Thriveful/issues"
+  },
+  "homepage": "https://github.com/ting11222001/Thriveful#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0"
+  }
+}
