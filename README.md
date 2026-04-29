@@ -1,105 +1,62 @@
-# Thriveful - Mental Health Booking Website
+# Thriveful - Mental Health Booking Platform
 
-Welcome to the Thriveful Mental Health Website repository! 
+A full-stack MERN application for booking online mental health sessions. Patients can find a doctor, pay via Stripe, and manage their bookings. Doctors can manage their profiles and availability.
 
-This project is a comprehensive application constructed using the MERN (MongoDB, Express.js, React, Node.js) stack. It serves as a prototype website dedicated to advancing mental health and well-being, offering affordable online counseling sessions and curated articles from experts, fostering the development of a supportive peer community among users. Future plans for this project include the integration of a discussion forum, events page, and an admin dashboard page
+[Live Demo](https://health-booking-website-client.vercel.app/) · [Playwright E2E Tests](#e2e-testing-with-playwright)
 
 ## Demo
 
-Check out the live demo [here](https://health-booking-website-client.vercel.app/).
+Login as a patient:
+![Login page](demo/screenshot-login.png)
+
+Then, get redirected to the home page:
+![Home page after login](demo/screenshot-home.png)
+
+Browse available doctors:
+![Find a Doctor page](demo/screenshot-find-doctor.png)
+
+View a doctor profile and click Book Appointment:
+![Doctor profile with booking button](demo/screenshot-doctor-profile.png)
+
+Complete payment via Stripe:
+![Stripe checkout](demo/screenshot-stripe.png)
+
+View the confirmed booking on the patient profile:
+![Patient profile with booking](demo/screenshot-booking-confirmed.png)
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technologies](#technologies)
-- [Features](#features)
-- [Test User Login Information](#test-user-login-information)
-- [Acknowledgements](#acknowledgements)
+- [What This Does](#what-this-does)
+- [Tech Stack](#tech-stack)
+- [Auth and Roles](#auth-and-roles)
+- [E2E Testing with Playwright](#e2e-testing-with-playwright)
+- [Test Credentials](#test-credentials)
+- [Getting Started](#getting-started)
 
-## Installation
+## What This Does
 
-Follow these steps to set up and run the project locally:
+Two user roles share a single login page but get different dashboards.
+ 
+A patient logs in, searches for a doctor by name or specialty, views the doctor's profile, and books a session. Payment is handled through Stripe. After payment, the booking appears on the patient's profile page.
+ 
+A doctor logs in, manages their profile, and sets their availability. New doctor accounts are set to pending until an admin approves them.
+ 
+- Single login page for both roles, with role-based routing after login
+- JWT authentication with persistent sessions
+- Stripe payment integration
+- Password hashing with bcryptjs
+- E2E tests added using Playwright
 
-1. Clone the project:
+## Tech Stack
 
-```bash
-git clone https://github.com/ting11222001/Health-Booking-Website.git
-```
+- React, Vite
+- Node.js, Express.js
+- MongoDB
+- Stripe
+- Docker (local MongoDB)
+- Playwright (E2E testing)
 
-2. Change into the front and backend project directory to install the dependencies:
-
-```bash
-cd frontend/
-npm install
-
-cd backend/
-npm install
-```
-
-## Running Locally
-
-You need **three things running** at the same time: MongoDB (Docker), the backend, and the frontend.
-
-### 1. Start MongoDB in Docker
-
-**First time only** — creates and starts the container. Make sure Docker Desktop is open,
-then run this from the **project root**:
-
-```bash
-docker compose up -d
-```
-
-**From the second time onwards** — the container already exists, so you can either:
-- Click the **▶ play button** next to `thriveful-mongo` in Docker Desktop, or
-- Run `docker compose up -d` again (safe to re-run, does the same thing)
-
-Data is persisted in a Docker volume so it survives restarts.
-To stop it: `docker compose down`.
-
-To connect with **MongoDB Compass** (GUI to inspect your data):
-```
-mongodb://root:example@localhost:27017/thriveful?authSource=admin
-```
-
-### 2. Set up environment variables
-
-```bash
-cp backend/.env.example  backend/.env
-cp frontend/.env.example frontend/.env
-```
-
-Fill in your real values. See each `.env.example` file for instructions on where
-to find each value (Cloudinary dashboard, Stripe dashboard, etc.).
-
-### 3. Install dependencies
-
-```bash
-cd backend && npm install
-cd ../frontend && npm install
-```
-
-### 4. Start the backend
-
-```bash
-cd backend
-npm run start-dev
-```
-
-Express server runs at **http://localhost:8000**.
-
-### 5. Start the frontend
-
-```bash
-cd frontend
-npm run dev
-```
-
-Vite dev server runs at **http://localhost:5173** — open this in your browser.
-
----
-
-## API Authorization
+## Roles
 
 Routes are protected based on three user roles: `admin`, `patient`, `doctor`.
 
@@ -113,75 +70,96 @@ Routes are protected based on three user roles: `admin`, `patient`, `doctor`.
 
 When a doctor registers, their `isApproved` status defaults to `"pending"` until approved.
 
-## Technologies
+## E2E Testing with Playwright
 
-- Vite
-- React
-- MongoDB
-- Stripe
+Two end-to-end tests cover the core patient flow, run against Chromium.
 
-## Features
+Test - patient can log in successfully:
+![Test results overview](demo/test-report1.png)
 
-### Frontend
+Test - logged in user can view a doctor profile:
+![Doctor profile test steps](demo/test-report2.png)
 
-- Implemented loading animations and toast notifications to provide users with a seamless interface experience during data submission from frontend to backend.
-- Ensured responsive design across all devices for optimal user experience.
+Both tests passed in 4.7s total (2 passed, 0 failed, 0 flaky).
 
-### Backend
+**What is tested**
 
-- Established protected routes to enforce restricted operations on specific API routes; for instance, only "patients" are permitted to create reviews for doctors.
-- Implemented bcryptjs for cryptographic hashing to fortify the security of users' passwords during registration, guaranteeing that only hashed strings are stored in the database.
-- Implemented user authentication using JWT tokens, enabling persistent user sessions even after closing the browser window, and granting access to designated features such as individual user profile pages.
-- Implemented a mechanism for dropping databases and seeding data to facilitate easy testing processes.
+- Patient logs in with email and password
+- App redirects to the correct page after login
+- Logged-in user navigates to Find a Doctor
+- User opens a doctor profile page
+- Doctor profile shows the Book Appointment button
 
+**How to run**
 
-## Test User Login Information
-To test the credential authentication functionality, you can use the following admin and user (patients/doctors) login information:
-
-admin:
 ```bash
-{
-    "email": "admin@gmail.com",
-    "password": "admin"
-}
+npx playwright test
+npx playwright show-report
 ```
 
-users (i.e. patient):
-```bash
-{
-    "email": "mila@gmail.com",
-    "password": "123"
-}
+## Test Credentials
 
-{
-    "email": "emma@gmail.com",
-    "password": "123"
-}
+**Patient**
+```
+email: mila@gmail.com
+password: 123
 ```
 
-doctors:
-```bash
-{
-    "email": "anna@gmail.com",
-    "password": "1234"
-}
-
-{
-    "email": "john@gmail.com",
-    "password": "1234"
-}
+**Doctor**
+```
+email: anna@gmail.com
+password: 1234
 ```
 
-## Stripe test card's information:
-
-```bash
+**Stripe test card**
+```
 4242 4242 4242 4242
 ```
 
-## Acknowledgements
+## Getting Started
 
-A part of the UI design was inspired by [Coding With Muhib](https://www.youtube.com/watch?v=K4_J3ShsUOY&t=22s&ab_channel=CodingWithMuhib).
+You need three things running at the same time: MongoDB, the backend, and the frontend.
 
-The rest API settings and media assets were created by me ✨
+**1. Start MongoDB in Docker**
 
-Feel free to reach out with any questions or feedback!
+```bash
+docker compose up -d
+```
+
+Run this from the project root. On subsequent runs, you can re-run the same command or press play in Docker Desktop.
+
+To stop: `docker compose down`
+
+**2. Set up environment variables**
+
+```bash
+cp backend/.env.example  backend/.env
+cp frontend/.env.example frontend/.env
+```
+
+Fill in values from your Cloudinary and Stripe dashboards.
+
+**3. Install dependencies**
+
+```bash
+cd backend && npm install
+cd ../frontend && npm install
+```
+
+**4. Start the backend**
+
+```bash
+cd backend
+npm run start-dev
+```
+
+Runs at `http://localhost:8000`
+
+**5. Start the frontend**
+
+```bash
+cd frontend
+npm run dev
+```
+
+Runs at `http://localhost:5173`
